@@ -18,7 +18,7 @@ const Footer = () => {
               Nasze stojaki używane są przez tysiące zadowolonych klientów w całym kraju.
             </p>
             <div className="flex items-center space-x-4">
-              <div className="flex items-center text-yellow-400">
+              <div className="flex items-center text-blue-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
@@ -33,21 +33,21 @@ const Footer = () => {
             <div className="space-y-3">
               <a
                 href="tel:+48123456789"
-                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
               >
                 <Phone className="w-4 h-4 mr-3" />
                 +48 123 456 789
               </a>
               <a
                 href="https://wa.me/48123456789"
-                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                className="flex items-center text-gray-300 hover:text-gray-100 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 mr-3" />
                 WhatsApp
               </a>
               <a
                 href="mailto:info@stojaki-choinkowe.pl"
-                className="flex items-center text-gray-300 hover:text-white transition-colors"
+                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
               >
                 <Mail className="w-4 h-4 mr-3" />
                 info@stojaki-choinkowe.pl
@@ -64,27 +64,27 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Informacje</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#produkty" className="text-gray-300 hover:text-white transition-colors">
+                <a href="#produkty" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Nasze Produkty
                 </a>
               </li>
               <li>
-                <a href="#zamowienie" className="text-gray-300 hover:text-white transition-colors">
+                <a href="#zamowienie" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Jak Zamówić
                 </a>
               </li>
               <li>
-                <a href="#kontakt" className="text-gray-300 hover:text-white transition-colors">
+                <a href="#kontakt" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Dostawa i Płatność
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Regulamin
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
                   Polityka Prywatności
                 </a>
               </li>

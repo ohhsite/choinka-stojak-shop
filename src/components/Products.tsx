@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ProductCard from './ProductCard';
 
@@ -101,7 +100,7 @@ const Products = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Nasza Oferta <span className="text-green-600">Stojaków Choinkowych</span>
+            Nasza Oferta <span className="text-blue-600">Stojaków Choinkowych</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             6 rodzajów stalowych stojaków choinkowych dla każdej wielkości drzewa. 
@@ -116,7 +115,7 @@ const Products = () => {
         </div>
 
         <div className="text-center mt-16">
-          <div className="bg-white rounded-xl p-8 shadow-lg inline-block">
+          <div className="bg-white rounded-xl p-8 shadow-lg inline-block border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               🎯 Nie wiesz który stojak wybrać?
             </h3>
@@ -126,13 +125,13 @@ const Products = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+48123456789"
-                className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
               >
                 📞 +48 123 456 789
               </a>
               <a
                 href="https://wa.me/48123456789"
-                className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
+                className="bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
               >
                 💬 WhatsApp
               </a>

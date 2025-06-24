@@ -24,12 +24,12 @@ const ProductCard: React.FC<ProductCardProps> = ({
   features
 }) => {
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
       <div className="relative">
         <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
           <div className="text-6xl">🎄</div>
         </div>
-        <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+        <div className="absolute top-4 right-4 bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold">
           {price}
         </div>
       </div>
@@ -39,16 +39,16 @@ const ProductCard: React.FC<ProductCardProps> = ({
         
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div className="flex items-center text-sm text-gray-600">
-            <Ruler className="w-4 h-4 mr-2 text-blue-500" />
+            <Ruler className="w-4 h-4 mr-2 text-blue-600" />
             <span><strong>Szerokość:</strong> {width}</span>
           </div>
           <div className="flex items-center text-sm text-gray-600">
-            <Trees className="w-4 h-4 mr-2 text-green-500" />
+            <Trees className="w-4 h-4 mr-2 text-gray-700" />
             <span><strong>Dla choinek:</strong> {treeSize}</span>
           </div>
         </div>
         
-        <p className="text-gray-700 mb-4 text-sm leading-relaxed">
+        <p className="text-gray-600 mb-4 text-sm leading-relaxed">
           {description}
         </p>
         
@@ -57,7 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <ul className="space-y-1">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center text-sm text-gray-600">
-                <Star className="w-3 h-3 mr-2 text-yellow-500 flex-shrink-0" />
+                <Star className="w-3 h-3 mr-2 text-gray-500 flex-shrink-0" />
                 {feature}
               </li>
             ))}
@@ -76,7 +76,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               }
             }
           }}
-          className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+          className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
         >
           Zamów Ten Stojak
         </button>
