@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ProductCard from './ProductCard';
 
@@ -8,14 +9,15 @@ const Products = () => {
       name: "Stojak Mini - Stalowy Kompakt",
       width: "25 cm",
       treeSize: "do 1,5 m",
-      description: "Idealny dla małych choinek i mieszkań. Solidna konstrukcja stalowa z regulowanymi śrubami zapewnia stabilność nawet dla gęstych drzew.",
+      description: "Nowoczesny stojak dla małych choinek. Solidna konstrukcja stalowa z regulowanymi śrubami zapewnia stabilność. Idealny dla sklepów i biur.",
       price: "49 zł",
       image: "/stojak1.jpg",
       features: [
         "Wzmocniona podstawa stalowa",
         "3 regulowane śruby",
         "Antypoślizgowe nakładki",
-        "Kompaktowy design"
+        "Kompaktowy design",
+        "Pojemność na wodę 1L"
       ]
     },
     {
@@ -23,14 +25,15 @@ const Products = () => {
       name: "Stojak Standard - Uniwersalny",
       width: "30 cm", 
       treeSize: "1,5 - 2,2 m",
-      description: "Najpopularniejszy model. Uniwersalny stojak stalowy odpowiedni dla większości domowych choinek. Łączy solidność z łatwością montażu.",
+      description: "Najpopularniejszy model B2B. Uniwersalny nowoczesny stojak stalowy odpowiedni dla większości zastosowań komercyjnych.",
       price: "69 zł",
       image: "/stojak2.jpg",
       features: [
         "Stal ocynkowana",
         "4 mocne śruby dociskowe",
-        "Pojemność na wodę 2L",
-        "Łatwy montaż bez narzędzi"
+        "Pojemność na wodę 1L",
+        "Łatwy montaż bez narzędzi",
+        "Certyfikat jakości"
       ]
     },
     {
@@ -44,8 +47,9 @@ const Products = () => {
       features: [
         "Podwójnie wzmocniona podstawa",
         "6 śrub w 2 poziomach",
-        "Pojemność na wodę 3L",
-        "System auto-centrowania"
+        "Pojemność na wodę 1L",
+        "System auto-centrowania",
+        "Powłoka antykorozyjna"
       ]
     },
     {
@@ -59,8 +63,9 @@ const Products = () => {
       features: [
         "Stal nierdzewna",
         "8 śrub mocujących",
-        "Pojemność na wodę 4L",
-        "Certyfikat bezpieczeństwa"
+        "Pojemność na wodę 1L",
+        "Certyfikat bezpieczeństwa",
+        "Gwarancja 3 lata"
       ]
     },
     {
@@ -74,8 +79,9 @@ const Products = () => {
       features: [
         "Konstrukcja przemysłowa",
         "10 śrub w 3 poziomach",
-        "Pojemność na wodę 6L",
-        "Gwarancja 5 lat"
+        "Pojemność na wodę 1L",
+        "Gwarancja 5 lat",
+        "Certyfikat CE"
       ]
     },
     {
@@ -83,14 +89,15 @@ const Products = () => {
       name: "Stojak Deluxe - Z Systemem Obrotu",
       width: "38 cm",
       treeSize: "2,5 - 3,5 m",
-      description: "Innowacyjny stojak z możliwością obrotu choinka o 360°. Idealny do prezentacji i łatwego dostępu do wszystkich stron drzewa.",
+      description: "Innowacyjny stojak z możliwością obrotu choinka o 360°. Idealny do prezentacji w galeriach i sklepach z łatwym dostępem do wszystkich stron drzewa.",
       price: "159 zł",
       image: "/stojak6.jpg",
       features: [
         "System obrotowy 360°",
         "Blokada pozycji",
         "Łożyska kulkowe",
-        "Pojemność na wodę 3,5L"
+        "Pojemność na wodę 1L",
+        "Patent własny"
       ]
     }
   ];
@@ -100,12 +107,15 @@ const Products = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Nasza Oferta <span className="text-blue-600">Stojaków Choinkowych</span>
+            Katalog <span className="text-blue-600">Stojaków B2B</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            6 rodzajów stalowych stojaków choinkowych dla każdej wielkości drzewa. 
-            Wszystkie wykonane z najwyższej jakości materiałów z gwarancją trwałości.
+            6 rodzajów nowoczesnych stalowych stojaków choinkowych dla firm. 
+            Minimalne zamówienie 5 sztuk. Dostawa paletowa w całej Polsce.
           </p>
+          <div className="mt-6 inline-flex items-center bg-red-100 text-red-800 px-6 py-3 rounded-full">
+            <span className="font-bold">PROMOCJA -15% do sierpnia!</span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -117,10 +127,10 @@ const Products = () => {
         <div className="text-center mt-16">
           <div className="bg-white rounded-xl p-8 shadow-lg inline-block border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              🎯 Nie wiesz który stojak wybrać?
+              📋 Potrzebujesz indywidualnej oferty?
             </h3>
             <p className="text-gray-600 mb-6">
-              Zadzwoń do nas - pomożemy dobrać idealny stojak dla Twojej choinki!
+              Skontaktuj się z naszym działem B2B - przygotujemy ofertę dostosowaną do Twoich potrzeb biznesowych!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -133,9 +143,12 @@ const Products = () => {
                 href="https://wa.me/48123456789"
                 className="bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
               >
-                💬 WhatsApp
+                💬 WhatsApp B2B
               </a>
             </div>
+            <p className="text-sm text-gray-500 mt-4">
+              Min. zamówienie 5 szt. • Dostawa paletowa • Rabaty ilościowe
+            </p>
           </div>
         </div>
       </div>

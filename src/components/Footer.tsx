@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Phone, MessageCircle, Mail, MapPin, Star } from 'lucide-react';
+import { Phone, MessageCircle, Mail, MapPin, Factory } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -11,25 +11,24 @@ const Footer = () => {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 flex items-center">
               🎄 Stojaki Choinkowe
+              <span className="ml-2 text-sm bg-blue-600 px-2 py-1 rounded">PRODUCENT</span>
             </h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Jesteśmy wiodącym dostawcą stalowych stojaków choinkowych w Polsce. 
-              Od ponad 10 lat zapewniamy najwyższą jakość produktów i profesjonalną obsługę klienta. 
-              Nasze stojaki używane są przez tysiące zadowolonych klientów w całym kraju.
+              Jesteśmy producentem nowoczesnych stalowych stojaków choinkowych z siedzibą na Podlasiu. 
+              Od lat specjalizujemy się w dostawach B2B dla sklepów, hoteli, galerii i firm dekoratorskich. 
+              Oferujemy profesjonalne rozwiązania z dostępą paletową w całej Polsce.
             </p>
             <div className="flex items-center space-x-4">
               <div className="flex items-center text-blue-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
+                <Factory className="w-5 h-5 mr-2" />
+                <span className="text-gray-300">Własna produkcja • Podlaskie</span>
               </div>
-              <span className="text-gray-300">4.9/5 (2847 opinii)</span>
             </div>
           </div>
 
           {/* Kontakt */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
+            <h4 className="text-lg font-semibold mb-4">Kontakt B2B</h4>
             <div className="space-y-3">
               <a
                 href="tel:+48123456789"
@@ -43,49 +42,49 @@ const Footer = () => {
                 className="flex items-center text-gray-300 hover:text-gray-100 transition-colors"
               >
                 <MessageCircle className="w-4 h-4 mr-3" />
-                WhatsApp
+                WhatsApp B2B
               </a>
               <a
-                href="mailto:info@stojaki-choinkowe.pl"
+                href="mailto:b2b@stojaki-choinkowe.pl"
                 className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
               >
                 <Mail className="w-4 h-4 mr-3" />
-                info@stojaki-choinkowe.pl
+                b2b@stojaki-choinkowe.pl
               </a>
               <div className="flex items-center text-gray-300">
                 <MapPin className="w-4 h-4 mr-3" />
-                Warszawa, Polska
+                Podlaskie, Polska
               </div>
             </div>
           </div>
 
           {/* Informacje */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Informacje</h4>
+            <h4 className="text-lg font-semibold mb-4">Dla Firm</h4>
             <ul className="space-y-2">
               <li>
                 <a href="#produkty" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Nasze Produkty
+                  Katalog B2B
                 </a>
               </li>
               <li>
                 <a href="#zamowienie" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Jak Zamówić
-                </a>
-              </li>
-              <li>
-                <a href="#kontakt" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Dostawa i Płatność
+                  Zapytanie Ofertowe
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Regulamin
+                  Dostawa Paletowa
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                  Polityka Prywatności
+                  Regulamin B2B
+                </a>
+              </li>
+              <li>
+                <a href="#cookies" className="text-gray-300 hover:text-blue-400 transition-colors">
+                  Polityka Cookies
                 </a>
               </li>
             </ul>
@@ -96,24 +95,24 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 className="text-lg font-semibold mb-4">Stojaki Choinkowe - Dlaczego My?</h4>
+              <h4 className="text-lg font-semibold mb-4">Nowoczesne Stojaki Choinkowe B2B</h4>
               <p className="text-gray-300 text-sm leading-relaxed">
-                Nasze <strong>stojaki choinkowe stalowe</strong> to gwarancja bezpieczeństwa i trwałości. 
-                Oferujemy <strong>stojaki do choinek</strong> wszystkich rozmiarów - od małych stojaków 
-                do mieszkań po przemysłowe <strong>stojaki stalowe</strong> dla galerii handlowych. 
-                Każdy stojak choinkowy w naszej ofercie przeszedł testy jakości i ma certyfikat bezpieczeństwa.
+                Producent <strong>nowoczesnych stojaków choinkowych stalowych</strong> z Podlasia. 
+                Oferujemy <strong>stojaki do choinek</strong> dla firm - minimalne zamówienie 5 sztuk, 
+                dostawa paletowa. Nasze <strong>stojaki stalowe</strong> o pojemności 1L zapewniają 
+                stabilność i bezpieczeństwo. Specjalizujemy się w dostawach B2B dla sklepów i galerii.
               </p>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Popularne Wyszukiwania</h4>
+              <h4 className="text-lg font-semibold mb-4">Popularne Wyszukiwania B2B</h4>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "stojaki choinkowe",
-                  "stojaki stalowe", 
-                  "stojaki do choinek",
-                  "stojak choinkowy metalowy",
-                  "stojaki świąteczne",
-                  "akcesoria choinkowe"
+                  "stojaki choinkowe hurtownia",
+                  "stojaki stalowe B2B", 
+                  "stojaki do choinek sklep",
+                  "nowoczesne stojaki choinkowe",
+                  "stojaki choinkowe producent",
+                  "dostawa paletowa stojaki"
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -127,11 +126,34 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Polityka Cookies */}
+        <div id="cookies" className="border-t border-gray-700 mt-8 pt-8">
+          <div className="bg-gray-800 rounded-lg p-6">
+            <h4 className="text-lg font-semibold mb-3">Polityka Cookies</h4>
+            <p className="text-gray-300 text-sm mb-4">
+              Ta strona wykorzystuje pliki cookies w celu zapewnienia najwyższej jakości usług. 
+              Korzystając z naszej strony wyrażasz zgodę na używanie cookies zgodnie z naszą polityką prywatności. 
+              Cookies pomagają nam analizować ruch na stronie i dostosowywać treści do Twoich potrzeb biznesowych.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition-colors">
+                Akceptuję wszystkie
+              </button>
+              <button className="bg-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-700 transition-colors">
+                Tylko niezbędne
+              </button>
+              <a href="#" className="text-blue-400 text-sm hover:underline flex items-center">
+                Ustawienia cookies
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>
-            © 2024 Stojaki Choinkowe. Wszystkie prawa zastrzeżone. 
-            Sprzedaż stojaków choinkowych stalowych w całej Polsce.
+            © 2024 Stojaki Choinkowe - Producent z Podlasia. Wszystkie prawa zastrzeżone. 
+            Nowoczesne stojaki stalowe B2B - dostawa paletowa w całej Polsce.
           </p>
         </div>
       </div>

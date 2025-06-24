@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Send, Phone, MessageCircle, CheckCircle } from 'lucide-react';
+import { Send, Phone, MessageCircle, CheckCircle, Package } from 'lucide-react';
 
 const OrderForm = () => {
   const [formData, setFormData] = useState({
-    imie: '',
+    firma: '',
+    nip: '',
+    kontakt: '',
     telefon: '',
     email: '',
     produkt: '',
-    ilosc: '1',
+    ilosc: '5',
     adres: '',
     uwagi: ''
   });
@@ -32,11 +34,13 @@ const OrderForm = () => {
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        imie: '',
+        firma: '',
+        nip: '',
+        kontakt: '',
         telefon: '',
         email: '',
         produkt: '',
-        ilosc: '1',
+        ilosc: '5',
         adres: '',
         uwagi: ''
       });
@@ -51,17 +55,19 @@ const OrderForm = () => {
   };
 
   const generateWhatsAppMessage = () => {
-    const message = `Dzień dobry! Chciałbym zamówić:
+    const message = `Dzień dobry! Zapytanie ofertowe B2B:
     
-🎄 Produkt: ${formData.produkt}
-📦 Ilość: ${formData.ilosc} szt.
-👤 Imię: ${formData.imie}
+🏢 Firma: ${formData.firma}
+🔢 NIP: ${formData.nip}
+👤 Osoba kontaktowa: ${formData.kontakt}
 📞 Telefon: ${formData.telefon}
 📧 Email: ${formData.email}
+🎄 Produkt: ${formData.produkt}
+📦 Ilość: ${formData.ilosc} szt. (min. 5 szt.)
 📍 Adres dostawy: ${formData.adres}
 📝 Uwagi: ${formData.uwagi}
 
-Proszę o kontakt w sprawie finalizacji zamówienia.`;
+Proszę o przygotowanie oferty B2B z ceną hurtową.`;
     
     return encodeURIComponent(message);
   };
@@ -74,11 +80,11 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
             <div className="bg-white rounded-xl p-12 shadow-xl border border-gray-200">
               <CheckCircle className="w-16 h-16 text-blue-600 mx-auto mb-6" />
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Dziękujemy za zamówienie!
+                Dziękujemy za zapytanie!
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Twoje zamówienie zostało przyjęte. Skontaktujemy się z Tobą w ciągu 2 godzin 
-                w celu potwierdzenia szczegółów i ustalenia dostawy.
+                Twoje zapytanie ofertowe zostało przyjęte. Skontaktujemy się z Tobą w ciągu 2 godzin 
+                roboczych w celu przygotowania indywidualnej oferty B2B.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -108,11 +114,11 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Zamów <span className="text-blue-600">Stojak Choinkowy</span>
+            Zapytanie <span className="text-blue-600">Ofertowe B2B</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Wypełnij formularz, zadzwoń lub napisz na WhatsApp. 
-            Gwarantujemy szybką realizację i profesjonalną obsługę.
+            Minimalne zamówienie 5 sztuk. Dostawa paletowa kurierem w całej Polsce. 
+            Przygotujemy indywidualną ofertę dla Twojej firmy.
           </p>
         </div>
 
@@ -121,21 +127,54 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
           <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <Send className="w-6 h-6 mr-3 text-blue-600" />
-              Formularz Zamówienia
+              Formularz B2B
             </h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="imie" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Imię i nazwisko *
+                  <label htmlFor="firma" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Nazwa firmy *
                   </label>
                   <input
                     type="text"
-                    id="imie"
-                    name="imie"
+                    id="firma"
+                    name="firma"
                     required
-                    value={formData.imie}
+                    value={formData.firma}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Nazwa firmy Sp. z o.o."
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="nip" className="block text-sm font-semibold text-gray-700 mb-2">
+                    NIP
+                  </label>
+                  <input
+                    type="text"
+                    id="nip"
+                    name="nip"
+                    value={formData.nip}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="123-456-78-90"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="kontakt" className="block text-sm font-semibold text-gray-700 mb-2">
+                    Osoba kontaktowa *
+                  </label>
+                  <input
+                    type="text"
+                    id="kontakt"
+                    name="kontakt"
+                    required
+                    value={formData.kontakt}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Jan Kowalski"
@@ -161,16 +200,17 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
 
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email
+                  Email firmowy *
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
+                  required
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="jan@email.com"
+                  placeholder="zamowienia@firma.pl"
                 />
               </div>
 
@@ -198,14 +238,14 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
                 
                 <div>
                   <label htmlFor="ilosc" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Ilość *
+                    Ilość (min. 5) *
                   </label>
                   <input
                     type="number"
                     id="ilosc"
                     name="ilosc"
-                    min="1"
-                    max="20"
+                    min="5"
+                    max="1000"
                     required
                     value={formData.ilosc}
                     onChange={handleChange}
@@ -226,7 +266,7 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
                   value={formData.adres}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="ul. Świąteczna 123, 00-001 Warszawa"
+                  placeholder="ul. Firmowa 123, 00-001 Warszawa"
                 />
               </div>
 
@@ -241,7 +281,7 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
                   value={formData.uwagi}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Dodatkowe informacje..."
+                  placeholder="Dodatkowe wymagania, terminy dostawy..."
                 />
               </div>
 
@@ -249,7 +289,7 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
                 type="submit"
                 className="w-full bg-blue-600 text-white py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
               >
-                Wyślij Zamówienie
+                Wyślij Zapytanie Ofertowe
               </button>
             </form>
           </div>
@@ -259,11 +299,11 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
             <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <Phone className="w-6 h-6 mr-3 text-blue-600" />
-                Zamów Telefonicznie
+                Kontakt Telefoniczny
               </h3>
               <p className="text-gray-600 mb-6">
-                Zadzwoń i zamów bezpośrednio przez telefon. 
-                Nasi konsultanci pomogą Ci wybrać odpowiedni stojak.
+                Zadzwoń bezpośrednio do działu sprzedaży B2B. 
+                Nasi konsultanci pomogą przygotować ofertę.
               </p>
               <a
                 href="tel:+48123456789"
@@ -273,18 +313,18 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
                 +48 123 456 789
               </a>
               <p className="text-sm text-gray-500 mt-3 text-center">
-                Pon-Pt: 8:00-18:00, Sob: 9:00-15:00
+                Pon-Pt: 8:00-17:00
               </p>
             </div>
 
             <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <MessageCircle className="w-6 h-6 mr-3 text-gray-700" />
-                Zamów przez WhatsApp
+                Szybki Kontakt WhatsApp
               </h3>
               <p className="text-gray-600 mb-6">
-                Napisz do nas na WhatsApp - szybko i wygodnie. 
-                Odpowiadamy w ciągu kilku minut!
+                Napisz na WhatsApp - najszybszy sposób na otrzymanie oferty. 
+                Odpowiadamy w godzinach pracy.
               </p>
               <a
                 href={`https://wa.me/48123456789?text=${generateWhatsAppMessage()}`}
@@ -294,18 +334,25 @@ Proszę o kontakt w sprawie finalizacji zamówienia.`;
                 Napisz na WhatsApp
               </a>
               <p className="text-sm text-gray-500 mt-3 text-center">
-                Dostępne 7 dni w tygodniu
+                Pon-Pt: 8:00-17:00
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-gray-800 to-blue-600 rounded-xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">🎁 Promocja Świąteczna!</h3>
-              <ul className="space-y-2 text-white/90">
-                <li>✅ Darmowa dostawa od 2 sztuk</li>
-                <li>✅ Rabat 10% przy zakupie 3+ stojaków</li>
-                <li>✅ Gwarancja satysfakcji lub zwrot pieniędzy</li>
-                <li>✅ Ekspresowa dostawa w 24h</li>
+            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-xl p-8 text-white">
+              <h3 className="text-2xl font-bold mb-4 flex items-center">
+                <Package className="w-6 h-6 mr-2" />
+                Promocja B2B -15%
+              </h3>
+              <ul className="space-y-2 text-white/90 mb-4">
+                <li>✅ Rabat 15% do sierpnia 2024</li>
+                <li>✅ Dostawa paletowa w całej Polsce</li>
+                <li>✅ Minimalne zamówienie 5 sztuk</li>
+                <li>✅ Faktury VAT dla firm</li>
+                <li>✅ Rabaty przy większych ilościach</li>
               </ul>
+              <div className="bg-white/20 rounded-lg p-3 text-center">
+                <p className="font-bold">Oszczędź nawet do 1000 zł!</p>
+              </div>
             </div>
           </div>
         </div>

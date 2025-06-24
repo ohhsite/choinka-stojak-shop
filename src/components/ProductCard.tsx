@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, Ruler, Trees } from 'lucide-react';
+import { Ruler, Trees, Droplets } from 'lucide-react';
 
 interface ProductCardProps {
   id: number;
@@ -37,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-900 mb-3">{name}</h3>
         
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 gap-3 mb-4">
           <div className="flex items-center text-sm text-gray-600">
             <Ruler className="w-4 h-4 mr-2 text-blue-600" />
             <span><strong>Szerokość:</strong> {width}</span>
@@ -45,6 +45,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <div className="flex items-center text-sm text-gray-600">
             <Trees className="w-4 h-4 mr-2 text-gray-700" />
             <span><strong>Dla choinek:</strong> {treeSize}</span>
+          </div>
+          <div className="flex items-center text-sm text-gray-600">
+            <Droplets className="w-4 h-4 mr-2 text-blue-500" />
+            <span><strong>Pojemność:</strong> 1L</span>
           </div>
         </div>
         
@@ -57,7 +61,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <ul className="space-y-1">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center text-sm text-gray-600">
-                <Star className="w-3 h-3 mr-2 text-gray-500 flex-shrink-0" />
+                <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></div>
                 {feature}
               </li>
             ))}
@@ -69,7 +73,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
             const element = document.getElementById('zamowienie');
             if (element) {
               element.scrollIntoView({ behavior: 'smooth' });
-              // Zaznacz ten produkt w formularzu
               const select = document.getElementById('produkt') as HTMLSelectElement;
               if (select) {
                 select.value = name;
@@ -78,7 +81,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           }}
           className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
         >
-          Zamów Ten Stojak
+          Zapytaj o Cenę B2B
         </button>
       </div>
     </div>
