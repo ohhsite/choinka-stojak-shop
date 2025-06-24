@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Star, Shield, Truck, Factory, Award } from 'lucide-react';
-
 const Hero = () => {
-  return (
-    <section className="bg-gradient-to-br from-gray-50 to-slate-100 py-20 relative overflow-hidden">
+  return <section className="bg-gradient-to-br from-gray-50 to-slate-100 py-20 relative overflow-hidden">
       {/* Promocja - wyróżniona sekcja */}
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10">
         <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-3 rounded-full shadow-lg animate-pulse">
@@ -26,7 +23,7 @@ const Hero = () => {
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
           Nowoczesne <span className="text-blue-600">Stojaki Choinkowe</span>
           <br />
-          <span className="text-gray-700">dla Firm B2B</span>
+          <span className="text-gray-700">sprzedaż hurtowa</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -51,22 +48,14 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#produkty"
-            className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-          >
+          <a href="#produkty" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
             Zobacz Katalog B2B
           </a>
-          <a
-            href="#zamowienie"
-            className="bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-900 transition-colors shadow-lg"
-          >
+          <a href="#zamowienie" className="bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-900 transition-colors shadow-lg">
             Zapytanie Ofertowe
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
