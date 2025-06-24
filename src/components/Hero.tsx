@@ -44,9 +44,7 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#produkty" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
-            Zobacz Katalog B2B
-          </a>
+          <a href="#produkty" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">Zobacz Katalog</a>
           <a href="#zamowienie" className="bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-900 transition-colors shadow-lg">
             Zapytanie Ofertowe
           </a>
