@@ -26,11 +26,7 @@ const Hero = () => {
           <span className="text-gray-700">sprzedaż hurtowa</span>
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Producent stalowych stojaków choinkowych z Podlasia. 
-          Minimalne zamówienie 5 sztuk. Dostawa paletowa w całej Polsce.
-          Profesjonalne rozwiązania dla sklepów, hoteli i galerii.
-        </p>
+        <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">Producent stalowych stojaków choinkowych z Podlasia. Minimalne zamówienie 5 sztuk. Dostawa paletowa w całej Polsce. </p>
 
         <div className="flex flex-wrap justify-center gap-6 mb-12">
           <div className="flex items-center bg-white px-6 py-3 rounded-full shadow-md border border-gray-200">
