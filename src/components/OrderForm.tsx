@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Send, Phone, MessageCircle, CheckCircle, Package } from 'lucide-react';
-
 const OrderForm = () => {
   const [formData, setFormData] = useState({
     firma: '',
@@ -14,22 +13,13 @@ const OrderForm = () => {
     uwagi: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const produkty = [
-    "Stojak Mini - Stalowy Kompakt (49 zł)",
-    "Stojak Standard - Uniwersalny (69 zł)", 
-    "Stojak Premium - Wzmocniony (89 zł)",
-    "Stojak Maxi - Profesjonalny (129 zł)",
-    "Stojak Gigant - Przemysłowy (199 zł)",
-    "Stojak Deluxe - Z Systemem Obrotu (159 zł)"
-  ];
-
+  const produkty = ["Stojak Mini - Stalowy Kompakt (49 zł)", "Stojak Standard - Uniwersalny (69 zł)", "Stojak Premium - Wzmocniony (89 zł)", "Stojak Maxi - Profesjonalny (129 zł)", "Stojak Gigant - Przemysłowy (199 zł)", "Stojak Deluxe - Z Systemem Obrotu (159 zł)"];
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Tutaj normalnie byłaby integracja z backendem
     console.log('Dane zamówienia:', formData);
     setIsSubmitted(true);
-    
+
     // Reset formularza po 3 sekundach
     setTimeout(() => {
       setIsSubmitted(false);
@@ -46,14 +36,12 @@ const OrderForm = () => {
       });
     }, 3000);
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
   const generateWhatsAppMessage = () => {
     const message = `Dzień dobry! Zapytanie ofertowe B2B:
     
@@ -68,13 +56,10 @@ const OrderForm = () => {
 📝 Uwagi: ${formData.uwagi}
 
 Proszę o przygotowanie oferty B2B z ceną hurtową.`;
-    
     return encodeURIComponent(message);
   };
-
   if (isSubmitted) {
-    return (
-      <section id="zamowienie" className="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
+    return <section id="zamowienie" className="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-white rounded-xl p-12 shadow-xl border border-gray-200">
@@ -87,17 +72,11 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                 roboczych w celu przygotowania indywidualnej oferty B2B.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="tel:+48123456789"
-                  className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
+                <a href="tel:+48123456789" className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                   <Phone className="w-4 h-4 mr-2" />
                   Zadzwoń teraz
                 </a>
-                <a
-                  href={`https://wa.me/48123456789?text=${generateWhatsAppMessage()}`}
-                  className="flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
-                >
+                <a href={`https://wa.me/48123456789?text=${generateWhatsAppMessage()}`} className="flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   WhatsApp
                 </a>
@@ -105,12 +84,9 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
             </div>
           </div>
         </div>
-      </section>
-    );
+      </section>;
   }
-
-  return (
-    <section id="zamowienie" className="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
+  return <section id="zamowienie" className="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -136,31 +112,14 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                   <label htmlFor="firma" className="block text-sm font-semibold text-gray-700 mb-2">
                     Nazwa firmy *
                   </label>
-                  <input
-                    type="text"
-                    id="firma"
-                    name="firma"
-                    required
-                    value={formData.firma}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Nazwa firmy Sp. z o.o."
-                  />
+                  <input type="text" id="firma" name="firma" required value={formData.firma} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Nazwa firmy Sp. z o.o." />
                 </div>
                 
                 <div>
                   <label htmlFor="nip" className="block text-sm font-semibold text-gray-700 mb-2">
                     NIP
                   </label>
-                  <input
-                    type="text"
-                    id="nip"
-                    name="nip"
-                    value={formData.nip}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="123-456-78-90"
-                  />
+                  <input type="text" id="nip" name="nip" value={formData.nip} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="123-456-78-90" />
                 </div>
               </div>
 
@@ -169,32 +128,14 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                   <label htmlFor="kontakt" className="block text-sm font-semibold text-gray-700 mb-2">
                     Osoba kontaktowa *
                   </label>
-                  <input
-                    type="text"
-                    id="kontakt"
-                    name="kontakt"
-                    required
-                    value={formData.kontakt}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Jan Kowalski"
-                  />
+                  <input type="text" id="kontakt" name="kontakt" required value={formData.kontakt} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Jan Kowalski" />
                 </div>
                 
                 <div>
                   <label htmlFor="telefon" className="block text-sm font-semibold text-gray-700 mb-2">
                     Telefon *
                   </label>
-                  <input
-                    type="tel"
-                    id="telefon"
-                    name="telefon"
-                    required
-                    value={formData.telefon}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="+48 123 456 789"
-                  />
+                  <input type="tel" id="telefon" name="telefon" required value={formData.telefon} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="+48 123 456 789" />
                 </div>
               </div>
 
@@ -202,16 +143,7 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                   Email firmowy *
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="zamowienia@firma.pl"
-                />
+                <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="zamowienia@firma.pl" />
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
@@ -219,20 +151,11 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                   <label htmlFor="produkt" className="block text-sm font-semibold text-gray-700 mb-2">
                     Wybierz stojak *
                   </label>
-                  <select
-                    id="produkt"
-                    name="produkt"
-                    required
-                    value={formData.produkt}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
+                  <select id="produkt" name="produkt" required value={formData.produkt} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     <option value="">-- Wybierz stojak --</option>
-                    {produkty.map((produkt, index) => (
-                      <option key={index} value={produkt}>
+                    {produkty.map((produkt, index) => <option key={index} value={produkt}>
                         {produkt}
-                      </option>
-                    ))}
+                      </option>)}
                   </select>
                 </div>
                 
@@ -240,17 +163,7 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                   <label htmlFor="ilosc" className="block text-sm font-semibold text-gray-700 mb-2">
                     Ilość (min. 5) *
                   </label>
-                  <input
-                    type="number"
-                    id="ilosc"
-                    name="ilosc"
-                    min="5"
-                    max="1000"
-                    required
-                    value={formData.ilosc}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
+                  <input type="number" id="ilosc" name="ilosc" min="5" max="1000" required value={formData.ilosc} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                 </div>
               </div>
 
@@ -258,37 +171,17 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                 <label htmlFor="adres" className="block text-sm font-semibold text-gray-700 mb-2">
                   Adres dostawy *
                 </label>
-                <input
-                  type="text"
-                  id="adres"
-                  name="adres"
-                  required
-                  value={formData.adres}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="ul. Firmowa 123, 00-001 Warszawa"
-                />
+                <input type="text" id="adres" name="adres" required value={formData.adres} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="ul. Firmowa 123, 00-001 Warszawa" />
               </div>
 
               <div>
                 <label htmlFor="uwagi" className="block text-sm font-semibold text-gray-700 mb-2">
                   Uwagi
                 </label>
-                <textarea
-                  id="uwagi"
-                  name="uwagi"
-                  rows={3}
-                  value={formData.uwagi}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Dodatkowe wymagania, terminy dostawy..."
-                />
+                <textarea id="uwagi" name="uwagi" rows={3} value={formData.uwagi} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Dodatkowe wymagania, terminy dostawy..." />
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-              >
+              <button type="submit" className="w-full bg-blue-600 text-white py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg">
                 Wyślij Zapytanie Ofertowe
               </button>
             </form>
@@ -305,10 +198,7 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                 Zadzwoń bezpośrednio do działu sprzedaży B2B. 
                 Nasi konsultanci pomogą przygotować ofertę.
               </p>
-              <a
-                href="tel:+48123456789"
-                className="flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors w-full"
-              >
+              <a href="tel:+48123456789" className="flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors w-full">
                 <Phone className="w-5 h-5 mr-3" />
                 +48 123 456 789
               </a>
@@ -326,10 +216,7 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                 Napisz na WhatsApp - najszybszy sposób na otrzymanie oferty. 
                 Odpowiadamy w godzinach pracy.
               </p>
-              <a
-                href={`https://wa.me/48123456789?text=${generateWhatsAppMessage()}`}
-                className="flex items-center justify-center bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-900 transition-colors w-full"
-              >
+              <a href={`https://wa.me/48123456789?text=${generateWhatsAppMessage()}`} className="flex items-center justify-center bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-900 transition-colors w-full">
                 <MessageCircle className="w-5 h-5 mr-3" />
                 Napisz na WhatsApp
               </a>
@@ -344,7 +231,7 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                 Promocja B2B -15%
               </h3>
               <ul className="space-y-2 text-white/90 mb-4">
-                <li>✅ Rabat 15% do sierpnia 2024</li>
+                <li>✅ Rabat 15% do sierpnia 2025</li>
                 <li>✅ Dostawa paletowa w całej Polsce</li>
                 <li>✅ Minimalne zamówienie 5 sztuk</li>
                 <li>✅ Faktury VAT dla firm</li>
@@ -357,8 +244,6 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default OrderForm;

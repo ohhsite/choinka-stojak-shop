@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { Phone, MessageCircle, Mail, MapPin, Factory } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white py-16">
+  return <footer className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo i opis */}
@@ -30,24 +27,15 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Kontakt B2B</h4>
             <div className="space-y-3">
-              <a
-                href="tel:+48123456789"
-                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
-              >
+              <a href="tel:+48123456789" className="flex items-center text-gray-300 hover:text-blue-400 transition-colors">
                 <Phone className="w-4 h-4 mr-3" />
                 +48 123 456 789
               </a>
-              <a
-                href="https://wa.me/48123456789"
-                className="flex items-center text-gray-300 hover:text-gray-100 transition-colors"
-              >
+              <a href="https://wa.me/48123456789" className="flex items-center text-gray-300 hover:text-gray-100 transition-colors">
                 <MessageCircle className="w-4 h-4 mr-3" />
                 WhatsApp B2B
               </a>
-              <a
-                href="mailto:b2b@stojaki-choinkowe.pl"
-                className="flex items-center text-gray-300 hover:text-blue-400 transition-colors"
-              >
+              <a href="mailto:b2b@stojaki-choinkowe.pl" className="flex items-center text-gray-300 hover:text-blue-400 transition-colors">
                 <Mail className="w-4 h-4 mr-3" />
                 b2b@stojaki-choinkowe.pl
               </a>
@@ -106,21 +94,9 @@ const Footer = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Popularne Wyszukiwania B2B</h4>
               <div className="flex flex-wrap gap-2">
-                {[
-                  "stojaki choinkowe hurtownia",
-                  "stojaki stalowe B2B", 
-                  "stojaki do choinek sklep",
-                  "nowoczesne stojaki choinkowe",
-                  "stojaki choinkowe producent",
-                  "dostawa paletowa stojaki"
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs"
-                  >
+                {["stojaki choinkowe hurtownia", "stojaki stalowe B2B", "stojaki do choinek sklep", "nowoczesne stojaki choinkowe", "stojaki choinkowe producent", "dostawa paletowa stojaki"].map(tag => <span key={tag} className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-xs">
                     {tag}
-                  </span>
-                ))}
+                  </span>)}
               </div>
             </div>
           </div>
@@ -151,14 +127,9 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>
-            © 2024 Stojaki Choinkowe - Producent z Podlasia. Wszystkie prawa zastrzeżone. 
-            Nowoczesne stojaki stalowe B2B - dostawa paletowa w całej Polsce.
-          </p>
+          <p>© 2025 Stojaki Choinkowe - Producent z Podlasia. Wszystkie prawa zastrzeżone. Nowoczesne stojaki stalowe - dostawa paletowa w całej Polsce.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

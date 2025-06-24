@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Ruler, Trees, Droplets } from 'lucide-react';
-
 interface ProductCardProps {
   id: number;
   name: string;
@@ -12,7 +10,6 @@ interface ProductCardProps {
   image: string;
   features: string[];
 }
-
 const ProductCard: React.FC<ProductCardProps> = ({
   id,
   name,
@@ -23,8 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   image,
   features
 }) => {
-  return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
+  return <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
       <div className="relative">
         <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
           <div className="text-6xl">🎄</div>
@@ -59,33 +55,26 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <div className="mb-4">
           <h4 className="font-semibold text-gray-800 mb-2">Cechy produktu:</h4>
           <ul className="space-y-1">
-            {features.map((feature, index) => (
-              <li key={index} className="flex items-center text-sm text-gray-600">
+            {features.map((feature, index) => <li key={index} className="flex items-center text-sm text-gray-600">
                 <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></div>
                 {feature}
-              </li>
-            ))}
+              </li>)}
           </ul>
         </div>
         
-        <button
-          onClick={() => {
-            const element = document.getElementById('zamowienie');
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-              const select = document.getElementById('produkt') as HTMLSelectElement;
-              if (select) {
-                select.value = name;
-              }
-            }
-          }}
-          className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-        >
-          Zapytaj o Cenę B2B
-        </button>
+        <button onClick={() => {
+        const element = document.getElementById('zamowienie');
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth'
+          });
+          const select = document.getElementById('produkt') as HTMLSelectElement;
+          if (select) {
+            select.value = name;
+          }
+        }
+      }} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Zamów</button>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ProductCard;
