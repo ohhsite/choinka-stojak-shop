@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Products from '../components/Products';
-import OrderForm from '../components/OrderForm';
+import MultiProductOrderForm from '../components/MultiProductOrderForm';
 import Footer from '../components/Footer';
 
 const Index = () => {
@@ -12,7 +12,7 @@ const Index = () => {
       <Header />
       <Hero />
       <Products />
-      <OrderForm />
+      <MultiProductOrderForm />
       <Footer />
     </div>
   );

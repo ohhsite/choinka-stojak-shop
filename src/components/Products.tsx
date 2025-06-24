@@ -1,5 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import EditableHeading from './EditableHeading';
+
 const Products = () => {
   const products = [{
     id: 1,
@@ -59,9 +61,9 @@ const Products = () => {
   return <section id="produkty" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <EditableHeading level={2} className="text-4xl font-bold text-gray-900 mb-4">
             Katalog <span className="text-blue-600">Stojaków pod choinkę</span>
-          </h2>
+          </EditableHeading>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             6 rodzajów nowoczesnych stalowych stojaków choinkowych dla firm. 
             Minimalne zamówienie 5 sztuk. Dostawa paletowa w całej Polsce.
@@ -77,15 +79,17 @@ const Products = () => {
 
         <div className="text-center mt-16">
           <div className="bg-white rounded-xl p-8 shadow-lg inline-block border border-gray-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <EditableHeading level={3} className="text-2xl font-bold text-gray-900 mb-4">
               📋 Potrzebujesz indywidualnej oferty?
-            </h3>
+            </EditableHeading>
             <p className="text-gray-600 mb-6">Skontaktuj się z nami - przygotujemy ofertę dostosowaną do Twoich potrzeb biznesowych!</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="tel:+48123456789" className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                 📞 +48 123 456 789
               </a>
-              <a href="https://wa.me/48123456789" className="bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">💬 WhatsApp </a>
+              <a href="https://wa.me/48123456789" className="bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
+                💬 WhatsApp
+              </a>
             </div>
             <p className="text-sm text-gray-500 mt-4">
               Min. zamówienie 5 szt. • Dostawa paletowa • Rabaty ilościowe
