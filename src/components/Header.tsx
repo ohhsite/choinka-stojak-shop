@@ -27,8 +27,8 @@ const Header = () => {
 
           {/* Menu desktop - po środku */}
           <nav className="hidden md:flex items-center gap-8">
-            <a 
-              href="/#stojaki" 
+            <Link 
+              to="/#stojaki" 
               className="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium text-lg relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-green-600 after:left-0 after:-bottom-1 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
             >
               <EditableText
@@ -38,7 +38,7 @@ const Header = () => {
                 file="src/components/Header.tsx"
                 as="span"
               />
-            </a>
+            </Link>
             <Link 
               to="/faq" 
               className="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium text-lg relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-green-600 after:left-0 after:-bottom-1 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
@@ -63,8 +63,8 @@ const Header = () => {
                 as="span"
               />
             </Link>
-            <a 
-              href="/#kontakt" 
+            <Link 
+              to="/#zamowienie" 
               className="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium text-lg relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-green-600 after:left-0 after:-bottom-1 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
             >
               <EditableText
@@ -74,7 +74,7 @@ const Header = () => {
                 file="src/components/Header.tsx"
                 as="span"
               />
-            </a>
+            </Link>
           </nav>
 
           {/* Przyciski kontaktowe desktop */}
@@ -118,13 +118,13 @@ const Header = () => {
               >
                 🏠 Strona główna
               </Link>
-              <a 
-                href="/#stojaki" 
+              <Link 
+                to="/#stojaki" 
                 className="text-gray-700 hover:text-green-600 font-medium py-3 px-4 rounded-lg hover:bg-green-50 transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 🎄 Stojaki na choinkę
-              </a>
+              </Link>
               <Link 
                 to="/faq" 
                 className="text-gray-700 hover:text-green-600 font-medium py-3 px-4 rounded-lg hover:bg-green-50 transition-all duration-200"
@@ -139,13 +139,13 @@ const Header = () => {
               >
                 📦 Hurt
               </Link>
-              <a 
-                href="/#kontakt" 
+              <Link 
+                to="/#zamowienie" 
                 className="text-gray-700 hover:text-green-600 font-medium py-3 px-4 rounded-lg hover:bg-green-50 transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 📞 Kontakt
-              </a>
+              </Link>
               <div className="grid grid-cols-1 gap-3 pt-4 mt-4 border-t border-gray-200">
                 <a
                   href="https://wa.me/48604821125"

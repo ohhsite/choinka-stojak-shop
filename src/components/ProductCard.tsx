@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   features,
   detailsUrl
 }) => {
-  return <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 flex md:flex-row flex-col w-full">
+  return <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 flex md:flex-row flex-col w-full md:h-auto min-h-[800px] md:min-h-0">
       <div className="relative md:w-[40%] w-full">
         <div className="bg-gradient-to-br from-green-50 to-gray-50 flex items-center justify-center p-4 h-full min-h-[300px]">
           <div className="relative w-full h-full">

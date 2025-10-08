@@ -31,43 +31,38 @@ const StojakDuzyCzarny = () => {
     
     // SEO Meta Tags
     seoTitle: 'Duży Czarny Stojak na Choinkę 50x50cm | Wzmocniona Konstrukcja | Producent',
-    seoDescription: 'Profesjonalny duży stojak na choinkę 50x50cm w czarnym matowym wykończeniu. Waga 6,5kg, pojemnik 1L, max średnica pnia 12cm. ✓ Wzmocniona stal ✓ 2 lata gwarancji ✓ Dostawa 24h',
+    seoDescription: 'Profesjonalny duży stojak na choinkę 50x50cm w czarnym matowym wykończeniu. Waga 6,5kg, pojemnik 1L, max średnica pnia 12cm. ✓ Wzmocniona stal ✓ 2 lata gwarancji ✓ Wysyłka w 48h',
     seoKeywords: 'duży stojak na choinkę czarny, stojak na dużą choinkę, stojak na choinkę, stojak na choinke, stojak choinkowy, stojak pod choinkę, stojaki pod choinkę, metalowy stojak na choinkę, stojak na choinkę z wodą, stojak do choinki żywej, solidny stojak do choinki, stojaki do choinek, stojak na żywą choinkę, stojak na choinkę z pojemnikiem na wodę, stojak choinkowy 50x50, podstawki pod choinke, producent stojaków profesjonalnych',
     
     // Unique Content for SEO
     uniqueContent: {
-      mainTitle: 'Dlaczego wybrać duży czarny stojak na choinkę w profesjonalnej jakości?',
+      mainTitle: 'Stojak na dużą choinkę metalowy czarny 50x50cm – stabilność i bezpieczeństwo dla Twojej dekoracji',
       mainDescription: [
-        'Duży czarny stojak na choinkę to doskonałe połączenie profesjonalnej jakości z uniwersalnym designem. Klasyczne czarne wykończenie matowe zostało zaprojektowane z myślą o maksymalnej wszechstronności - doskonale komponuje się z każdym stylem wnętrza i kolorem dekoracji świątecznych. Podstawa o wymiarach 40×40cm zapewnia solidne oparcie nawet dla największych choinek domowych.',
-        'Matowa czarna powierzchnia ma szereg praktycznych zalet - nie odbija światła choinkowych lampek, dzięki czemu nie konkuruje z dekoracjami, a jednocześnie ukrywa drobne ślady użytkowania i jest łatwa w czyszczeniu. Ta cecha sprawia, że stojak przez lata zachowuje swój profesjonalny wygląd bez konieczności specjalnej pielęgnacji.',
-        'Model ten został wzmocniony do wagi 8 kilogramów, co czyni go idealnym wyborem dla choinek o wysokości do 3 metrów z pniem o średnicy do 12 centymetrów. Większy pojemnik na wodę o pojemności 2 litrów został zaprojektowany z myślą o zwiększonych potrzebach wodnych większych drzewek, co znacznie ułatwia utrzymanie ich w świeżym stanie przez cały sezon.'
+        'Wzmocniony metalowy stojak na choinkę z pojemnikiem na wodę to idealny wybór dla dużych, żywych drzewek. Stalowa podstawa 50x50cm zapewnia maksymalną stabilność nawet przy 4-metrowych choinkach. Pojemnik na wodę 1L utrzymuje świeżość igieł przez cały sezon.',
+        'Stojak pod dużą choinkę z szybkim montażem i solidnymi śrubami mocującymi. Antypoślizgowe podkładki chronią podłogę, a konstrukcja z wysokiej jakości stali malowanej proszkowo gwarantuje bezpieczeństwo użytkowania. Produkt polskiego producenta z 2-letnią gwarancją.',
+        'Stojak stalowy na dużą choinkę to nie tylko praktyczność, ale także estetyka – matowy czarny kolor pasuje do każdego wnętrza. Wybierz sprawdzony stojak choinkowy z pojemnikiem na wodę i ciesz się świętami bez obaw o przewrócenie drzewka.'
       ],
-      
-      featuresTitle: 'Profesjonalne cechy dużego czarnego stojaka na choinkę',
-      
-      usageTitle: 'Instrukcja montażu profesjonalnego dużego czarnego stojaka',
+      featuresTitle: 'Najważniejsze zalety dużego metalowego stojaka na choinkę z pojemnikiem na wodę',
+      usageTitle: 'Jak zamontować solidny stojak pod dużą choinkę? Instrukcja krok po kroku',
       usageSteps: [
-        'Wyjmij stojak z folii ochronnej',
-        'Nakręć dołączone do zestawu nakładki na śruby',
-        'Ostrożnie umieść pień dużej choinki w centralnym uchwycie',
-        'Dokręć wzmocnione śruby mocujące stopniowo i równomiernie',
-        'Wlej do misy wodę',
-        'Sprawdź stabilność i pionowość całej konstrukcji'
+        'Wyjmij wzmocniony stojak z opakowania',
+        'Załóż nakładki na śruby mocujące',
+        'Umieść pień choinki w uchwycie i sprawdź pion',
+        'Dokręć śruby równomiernie dla stabilności',
+        'Wlej wodę do pojemnika',
+        'Sprawdź stabilność przed dekorowaniem choinki'
       ],
-      
-      careTitle: 'Profesjonalna pielęgnacja dużego czarnego stojaka na choinkę',
+      careTitle: 'Pielęgnacja dużego metalowego stojaka na choinkę – praktyczne wskazówki',
       careInstructions: [
-        'Używaj standardowych środków czyszczących bezpiecznych dla malowanych powierzchni',
-        'Matowa powierzchnia jest odporna na odciski i łatwa w utrzymaniu',
-        'Po sezonie wykonaj gruntowne czyszczenie i sprawdź stan wszystkich elementów',
-        'Przechowuj w suchym miejscu zabezpieczając przed wilgocią',
-        'Regularnie kontroluj stan śrub mocujących i w razie potrzeby dokręcaj',
-        'Sprawdzaj stan antypoślizgowych podkładek i wymieniaj gdy zajdzie potrzeba',
-        'W przypadku zarysowań można użyć czarnej farby do retuszu powierzchni'
+        'Czyść stojak wilgotną ściereczką z łagodnym detergentem',
+        'Matowa stal ukrywa zarysowania i jest łatwa w utrzymaniu',
+        'Po sezonie umyj stojak i dokładnie wysusz',
+        'Przechowuj w suchym miejscu, by zapobiec korozji',
+        'Regularnie sprawdzaj stan śrub',
+        'W razie potrzeby użyj czarnej farby do retuszu'
       ],
-      
-      whyChooseTitle: 'Dlaczego nasz duży czarny stojak to wybór profesjonalistów?',
-      whyChooseDescription: 'Jako uznany polski producent stojaków na choinkę oferujemy produkt, który zdobył zaufanie zarówno klientów indywidualnych jak i profesjonalnych dekoratorów wnętrz. Nasz duży czarny stojak łączy w sobie sprawdzoną konstrukcję z uniwersalnym designem, co czyni go wyborem numer jeden dla osób ceniących niezawodność i praktyczność. Profesjonalna jakość wykonania oznacza, że produkt będzie służył przez dziesiątki lat, a klasyczne czarne wykończenie nigdy nie wyjdzie z mody. Wybierając ten model, inwestują Państwo w sprawdzone rozwiązanie, które sprawdzi się w każdych warunkach i z każdą choinką. To stojak, na którym mogą Państwo polegać przez wiele sezonów świątecznych.'
+      whyChooseTitle: 'Duży metalowy stojak na choinkę z gwarancją producenta – dlaczego warto?',
+      whyChooseDescription: 'Wybierając nasz duży metalowy stojak na choinkę, stawiasz na polskiego producenta, solidną stalową konstrukcję i praktyczny pojemnik na wodę. To produkt, który zapewnia bezpieczeństwo, trwałość i wygodę użytkowania przez wiele sezonów. Sprawdź opinie klientów i zamów stojak na dużą choinkę z szybką dostawą.'
     }
   };
 

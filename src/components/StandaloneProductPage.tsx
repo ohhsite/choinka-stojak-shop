@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ArrowLeft, Check, ShoppingCart, Ruler, Weight, Shield, Droplets, Package, Award, Star, Truck, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { PRODUCTS } from '../data/products';
 import Footer from '../components/Footer';
 
 const StandaloneProductPage = ({ 
@@ -33,24 +34,50 @@ const StandaloneProductPage = ({
 
   // SEO meta tags
   useEffect(() => {
-    // Set page title
-    document.title = seoTitle;
-    
-    // Add meta description
-    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
-    metaDescription.setAttribute('name', 'description');
-    metaDescription.setAttribute('content', seoDescription);
-    if (!document.querySelector('meta[name="description"]')) {
-      document.head.appendChild(metaDescription);
-    }
+    const origin = window.location.origin;
+    const canonicalUrl = `${origin}${window.location.pathname}`;
 
-    // Add meta keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]') || document.createElement('meta');
-    metaKeywords.setAttribute('name', 'keywords');
-    metaKeywords.setAttribute('content', seoKeywords);
-    if (!document.querySelector('meta[name="keywords"]')) {
-      document.head.appendChild(metaKeywords);
-    }
+    // Helper function to create/update meta tags
+    const setMetaTag = (attr: 'name' | 'property', value: string, content: string) => {
+      let element = document.querySelector(`meta[${attr}='${value}']`) as HTMLMetaElement;
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attr, value);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+
+    // Helper function to create/update link tags
+    const setLinkTag = (rel: string, href: string) => {
+      let element = document.querySelector(`link[rel='${rel}']`) as HTMLLinkElement;
+      if (!element) {
+        element = document.createElement('link');
+        element.setAttribute('rel', rel);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('href', href);
+    };
+
+    // --- Standard SEO ---
+    document.title = seoTitle;
+    setMetaTag('name', 'description', seoDescription);
+    setMetaTag('name', 'keywords', seoKeywords);
+    setLinkTag('canonical', canonicalUrl);
+
+    // --- Open Graph (Facebook, LinkedIn, etc.) ---
+    setMetaTag('property', 'og:title', seoTitle);
+    setMetaTag('property', 'og:description', seoDescription);
+    setMetaTag('property', 'og:type', 'product');
+    setMetaTag('property', 'og:url', canonicalUrl);
+    setMetaTag('property', 'og:image', `${origin}${productImages[0]}`);
+    setMetaTag('property', 'og:site_name', 'Metalowe Stojaki Choinkowe');
+
+    // --- Twitter Cards ---
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
+    setMetaTag('name', 'twitter:title', seoTitle);
+    setMetaTag('name', 'twitter:description', seoDescription);
+    setMetaTag('name', 'twitter:image', `${origin}${productImages[0]}`);
 
     // Add structured data for product
     const structuredData = {
@@ -94,6 +121,86 @@ const StandaloneProductPage = ({
     };
   }, [productName, seoTitle, seoDescription, seoKeywords, productPrice, productImages]);
 
+  // FAQ Structured Data
+  useEffect(() => {
+    const faqStructuredData = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jaki stojak na żywą choinkę jest najlepszy i najstabilniejszy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Najlepsze i najstabilniejsze są stojaki ciężkie, wykonane ze stali i o szerokiej podstawie. Nasz stojak waży do 6,5 kg i ma podstawę do 50x50 cm, co gwarantuje, że nawet 4-metrowa choinka się nie przewróci. To inwestycja w bezpieczeństwo i spokój na lata."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak sprawić, by żywa choinka nie gubiła igieł?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kluczem jest stałe nawadnianie. Choinka potrzebuje wody tak samo jak kwiaty w wazonie. Dlatego nasze stojaki mają wbudowany 1-litrowy pojemnik na wodę, który znacząco przedłuża żywotność i świeżość drzewka, ograniczając opadanie igieł."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak szybko i łatwo zamontować choinkę w stojaku?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Szukaj stojaka z prostym systemem mocowania, który nie wymaga narzędzi. W naszych modelach wystarczy umieścić pień w otworze i dokręcić ręcznie 4 śruby motylkowe. Cały proces zajmuje mniej niż 5 minut i można go wykonać w pojedynkę."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak dobrać stojak do wielkości i wagi choinki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zmierz wysokość choinki i średnicę pnia. Nasz mały stojak (30x30cm) jest idealny dla drzewek do 2m i pnia do 8cm. Dla większych choinek (2-4m) i pni do 12cm, wybierz nasz duży, wzmocniony model (50x50cm)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy warto inwestować w metalowy stojak zamiast plastikowego?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zdecydowanie tak. Stojak metalowy, w przeciwieństwie do plastikowego, jest praktycznie niezniszczalny i odporny na pęknięcia. Jest też znacznie cięższy, co zapewnia nieporównywalnie większą stabilność. To jednorazowy zakup, który posłuży wielu pokoleniom."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co zrobić, gdy pień choinki jest za gruby i nie mieści się w stojaku?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "W takiej sytuacji wystarczy delikatnie ociosać dolną część pnia siekierą lub piłą, aby dopasować go do otworu w stojaku. Podczas ociosywania zachowaj okrągły kształt pnia i usuń tylko tyle drewna, ile potrzeba. To standardowa praktyka i nie wpływa negatywnie na żywotność choinki."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaki stojak wybrać do jodły kaukaskiej, a jaki do świerka?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Do świerka zazwyczaj wystarczy mały stojak (30x30cm), ponieważ ma cieńszy pień i jest lżejszy. Jodła kaukaska ma znacznie grubszy pień i jest dużo cięższa, dlatego wymaga dużego, wzmocnionego stojaka (50x50cm), który pomieści pień o średnicy do 12cm i zapewni odpowiednią stabilność."
+          }
+        }
+      ]
+    };
+
+    const faqScript = document.createElement('script');
+    faqScript.type = 'application/ld+json';
+    faqScript.text = JSON.stringify(faqStructuredData);
+    faqScript.id = 'faq-structured-data';
+    document.head.appendChild(faqScript);
+
+    return () => {
+      // Cleanup
+      const existingScript = document.getElementById('faq-structured-data');
+      if (existingScript && document.head.contains(existingScript)) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Header />
@@ -123,13 +230,12 @@ const StandaloneProductPage = ({
             <div className="bg-gradient-to-br from-green-50 to-gray-50 rounded-2xl p-8 aspect-square flex items-center justify-center">
               <img 
                 src={productImages[currentImageIndex]} 
-                alt={`${productName} - wysokiej jakości metalowy stojak na choinkę z pojemnikiem na wodę`}
+                alt={`${productName} - profesjonalny metalowy stojak na choinkę z pojemnikiem na wodę - widok ${currentImageIndex + 1}`}
                 loading="eager"
                 decoding="async"
                 width="500"
                 height="500"
-                className="w-full h-full object-contain"
-                style={{ backgroundColor: 'white' }}
+                className="w-full h-full object-contain mix-blend-multiply hover:scale-110 transition-transform duration-300"
               />
             </div>
             
@@ -145,13 +251,12 @@ const StandaloneProductPage = ({
                   >
                     <img 
                       src={image} 
-                      alt={`${productName} ${index + 1} - stojak choinkowy metalowy`}
+                      alt={`${productName} - miniatura ${index + 1} - metalowy stojak choinkowy`}
                       loading="lazy"
                       decoding="async"
                       width="100"
                       height="100"
-                      className="w-full h-full object-contain"
-                      style={{ backgroundColor: 'white' }}
+                      className="w-full h-full object-contain mix-blend-multiply"
                     />
                   </button>
                 ))}
@@ -237,6 +342,38 @@ const StandaloneProductPage = ({
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Zobacz także inne stojaki */}
+        <div className="mt-16 max-w-6xl mx-auto">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Zobacz także</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {PRODUCTS.filter(p => p.productId !== productId).map(product => (
+              <Link 
+                key={product.productId} 
+                to={product.detailsUrl} 
+                className="group block bg-white rounded-xl shadow hover:shadow-lg border border-gray-100 p-4 transition-all duration-300 hover:scale-105"
+              >
+                <div className="bg-gradient-to-br from-green-50 to-gray-50 rounded-lg p-4 mb-4">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    loading="lazy"
+                    decoding="async"
+                    width="200"
+                    height="128"
+                    className="w-full h-32 object-contain mix-blend-multiply"
+                  />
+                </div>
+                <h3 className="font-semibold text-gray-900 group-hover:text-green-700 mb-2 text-sm">{product.name}</h3>
+                <div className="text-xs text-gray-500 mb-2">{product.width.trim()} | {product.treeSize.trim()}</div>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-700 font-bold">{product.price.trim()}</span>
+                  <span className="text-green-600 text-xs font-medium group-hover:underline">Szczegóły →</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -345,13 +482,111 @@ const StandaloneProductPage = ({
           </div>
         </div>
 
+        {/* FAQ Section - Optimized for AI & Featured Snippets */}
+        <div id="faq" className="mt-16 max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+            Odpowiedzi na Twoje pytania
+          </h3>
+          <div className="space-y-4">
+            {/* Pytanie 1 */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                Jaki stojak na żywą choinkę jest najlepszy i najstabilniejszy?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Najlepsze i najstabilniejsze są stojaki ciężkie, wykonane ze stali i o szerokiej podstawie. Nasz stojak waży do 6,5 kg i ma podstawę do 50x50 cm, co gwarantuje, że nawet 4-metrowa choinka się nie przewróci. To inwestycja w bezpieczeństwo i spokój na lata.
+              </p>
+            </div>
+            
+            {/* Pytanie 2 */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                Jak sprawić, by żywa choinka nie gubiła igieł?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Kluczem jest stałe nawadnianie. Choinka potrzebuje wody tak samo jak kwiaty w wazonie. Dlatego nasze stojaki mają wbudowany 1-litrowy pojemnik na wodę, który znacząco przedłuża żywotność i świeżość drzewka, ograniczając opadanie igieł.
+              </p>
+            </div>
+            
+            {/* Pytanie 3 */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                Jak szybko i łatwo zamontować choinkę w stojaku?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Szukaj stojaka z prostym systemem mocowania, który nie wymaga narzędzi. W naszych modelach wystarczy umieścić pień w otworze i dokręcić ręcznie 4 śruby motylkowe. Cały proces zajmuje mniej niż 5 minut i można go wykonać w pojedynkę.
+              </p>
+            </div>
+            
+            {/* Pytanie 4 */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                Jak dobrać stojak do wielkości i wagi choinki?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Zmierz wysokość choinki i średnicę pnia. Nasz mały stojak (30x30cm) jest idealny dla drzewek do 2m i pnia do 8cm. Dla większych choinek (2-4m) i pni do 12cm, wybierz nasz duży, wzmocniony model (50x50cm).
+              </p>
+            </div>
+            
+            {/* Pytanie 5 */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                Czy warto inwestować w metalowy stojak zamiast plastikowego?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Zdecydowanie tak. Stojak metalowy, w przeciwieństwie do plastikowego, jest praktycznie niezniszczalny i odporny na pęknięcia. Jest też znacznie cięższy, co zapewnia nieporównywalnie większą stabilność. To jednorazowy zakup, który posłuży wielu pokoleniom.
+              </p>
+            </div>
+            
+            {/* Pytanie 6 */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                Co zrobić, gdy pień choinki jest za gruby i nie mieści się w stojaku?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                W takiej sytuacji wystarczy delikatnie ociosać dolną część pnia siekierą lub piłą, aby dopasować go do otworu w stojaku. Podczas ociosywania zachowaj okrągły kształt pnia i usuń tylko tyle drewna, ile potrzeba. To standardowa praktyka i nie wpływa negatywnie na żywotność choinki.
+              </p>
+            </div>
+            
+            {/* Pytanie 7 */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm">
+              <h4 className="font-semibold text-gray-900 mb-2 text-lg">
+                Jaki stojak wybrać do jodły kaukaskiej, a jaki do świerka?
+              </h4>
+              <p className="text-gray-600 leading-relaxed">
+                Do świerka zazwyczaj wystarczy mały stojak (30x30cm), ponieważ ma cieńszy pień i jest lżejszy. Jodła kaukaska ma znacznie grubszy pień i jest dużo cięższa, dlatego wymaga dużego, wzmocnionego stojaka (50x50cm), który pomieści pień o średnicy do 12cm i zapewni odpowiednią stabilność.
+              </p>
+            </div>
+          </div>
+          
+          {/* CTA do FAQ */}
+          <div className="mt-8 text-center">
+            <p className="text-gray-600 mb-4">
+              Masz więcej pytań? Sprawdź wszystkie odpowiedzi w sekcji{' '}
+              <a href="#faq" className="text-green-600 hover:text-green-700 font-semibold underline">
+                FAQ
+              </a>
+              {' '}lub napisz do nas!
+            </p>
+            <a
+              href="https://wa.me/48604821125"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+            >
+              <Phone className="w-5 h-5" />
+              Napisz na WhatsApp
+            </a>
+          </div>
+        </div>
+
         {/* Final CTA */}
         <div className="mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-8 text-white text-center max-w-4xl mx-auto">
           <h6 className="text-2xl font-bold mb-4">
-            Zamów {productName} już dziś!
+            Zamów wygodnie online i ciesz się świąteczną choinką już za 48h!
           </h6>
           <p className="text-green-100 mb-6 text-lg">
-            Profesjonalny stojak na choinkę z gwarancją polskiego producenta
+            Szybka wysyłka, 2 lata gwarancji, polski producent – wybierz pewny stojak na choinkę!
           </p>
           <button
             onClick={() => {

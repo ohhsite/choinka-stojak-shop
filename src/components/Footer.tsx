@@ -85,32 +85,10 @@ const Footer = () => {
             />
             <ul className="space-y-2">
               <li>
-                <a href="/#stojaki" className="text-gray-300 hover:text-green-400 transition-all duration-300">
-                  <EditableText
-                    id="footer-catalog-link"
-                    initialText="Katalog B2B"
-                    component="Footer"
-                    file="src/components/Footer.tsx"
-                    as="span"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="/#zamowienie" className="text-gray-300 hover:text-green-400 transition-all duration-300">
+                <a href="/hurt" className="text-gray-300 hover:text-green-400 transition-all duration-300">
                   <EditableText
                     id="footer-quote-link"
                     initialText="Zapytanie Ofertowe"
-                    component="Footer"
-                    file="src/components/Footer.tsx"
-                    as="span"
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-green-400 transition-all duration-300">
-                  <EditableText
-                    id="footer-delivery-link"
-                    initialText="Dostawa Paletowa"
                     component="Footer"
                     file="src/components/Footer.tsx"
                     as="span"

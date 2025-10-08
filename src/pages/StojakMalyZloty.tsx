@@ -31,43 +31,39 @@ const StojakMalyZloty = () => {
     
     // SEO Meta Tags
     seoTitle: 'Mały Złoty Stojak na Choinkę 30x30cm | Eleganckie Wykończenie | Producent',
-    seoDescription: 'Luksusowy mały stojak na choinkę 30x30cm w złotym metalicznym wykończeniu. Waga 5kg, pojemnik 1L, max średnica pnia 8cm. ✓ Premium jakość ✓ 2 lata gwarancji ✓ Dostawa 24h',
+  seoDescription: 'Luksusowy mały stojak na choinkę 30x30cm w złotym metalicznym wykończeniu. Waga 5kg, pojemnik 1L, max średnica pnia 8cm. ✓ Premium jakość ✓ 2 lata gwarancji ✓ Wysyłka w 48h',
     seoKeywords: 'mały stojak na choinkę złoty, stojak na choinkę, stojak na choinke, stojak choinkowy, stojak pod choinkę, metalowy stojak na choinkę, stojak na choinkę z wodą, stojak do choinki, solidny stojak do choinki, stojak na żywą choinkę, stojak na choinkę z pojemnikiem na wodę, stojak choinkowy 30x30 złoty, podstawki pod choinke, luksusowy stojak na choinkę, producent stojaków premium',
     
     // Unique Content for SEO
-    uniqueContent: {
-      mainTitle: 'Dlaczego wybrać mały złoty stojak na choinkę z metalicznym wykończeniem?',
-      mainDescription: [
-        'Mały złoty stojak na choinkę to doskonałe połączenie praktyczności z eleganckim designem. Luksusowe złote wykończenie metaliczne nadaje świątecznego blasku każdemu wnętrzu, tworząc wyjątkową atmosferę podczas najważniejszych chwil roku. Podstawa o wymiarach 30×30cm została zaprojektowana z myślą o optymalnym wykorzystaniu przestrzeni w mniejszych pomieszczeniach.',
-        'Specjalna powłoka malarska w kolorze złotym metalicznym nie tylko pięknie prezentuje się wizualnie, ale również zapewnia dodatkową ochronę przed korozją i zarysowaniami. Proces malowania proszkowego gwarantuje trwałość koloru i odporność na warunki atmosferyczne przez wiele sezonów użytkowania.',
-        'Mimo eleganckiego wyglądu, stojak zachowuje wszystkie cechy funkcjonalne modelu podstawowego - waga 5 kilogramów zapewnia stabilność, a uchwyt na pnie do 8 centymetrów średnicy pasuje do większości choinek naturalnych o wysokości do 2 metrów. To idealne rozwiązanie dla osób ceniących zarówno bezpieczeństwo jak i estetykę.'
-      ],
-      
-      featuresTitle: 'Wyjątkowe zalety złotego stojaka na choinkę z premium wykończeniem',
-      
-      usageTitle: 'Instrukcja montażu eleganckiego złotego stojaka choinkowego',
-      usageSteps: [
-        'Wyjmij stojak z folii ochronnej, dbając o ochronę wykończenia',
-        'Nakręć dołączone do zestawu nakładki na śruby',
-        'Delikatnie umieść pień choinki w centralnym uchwycie sprawdzając pionowość',
-        'Dokręć śruby dociskowe równomiernie, uważając aby nie zarysować powierzchni',
-        'Wlej do misy wodę',
-        'Kontroluj poziom wody codziennie - złote wykończenie ułatwia obserwację poziomu'
-      ],
-      
-      careTitle: 'Specjalna pielęgnacja złotego metalowego stojaka na choinkę',
-      careInstructions: [
-        'Czyszczenie wykonuj delikatną ściereczką z mikrofibry aby nie zarysować złotej powierzchni',
-        'Unikaj stosowania ściernych środków czyszczących i twardych szczotek',
-        'Po sezonie umyj stojak letnią wodą z łagodnym detergentem bez wybielaczy',
-        'Wysusz dokładnie wszystkie elementy miękką ściereczką',
-        'Przechowuj w suchym miejscu w oryginalnym opakowaniu lub miękkiej tkaninie',
-        'W przypadku drobnych zarysowań można użyć specjalnej farby w kolorze złotym'
-      ],
-      
-      whyChooseTitle: 'Dlaczego nasz złoty stojak to najlepszy wybór dla eleganckich wnętrz?',
-      whyChooseDescription: 'Jako polski producent stojaków na choinkę oferujemy unikalne połączenie wysokiej jakości wykonania z luksusowym designem. Nasz mały złoty stojak powstaje w wyniku precyzyjnego procesu malowania proszkowego, który gwarantuje trwałość koloru i odporność na uszkodzenia. Wybierając ten model, otrzymujesz nie tylko funkcjonalny stojak, ale również element dekoracyjny, który pięknie komponuje się z świąteczną aranżacją. Eleganckie złote wykończenie sprawia, że stojak staje się częścią dekoracji, a nie tylko praktycznym elementem.'
-    }
+      uniqueContent: {
+        mainTitle: 'Złoty metalowy stojak na choinkę 30x30cm – elegancja i funkcjonalność w jednym',
+        mainDescription: [
+          'Elegancki złoty stojak na choinkę z pojemnikiem na wodę to idealny wybór do nowoczesnych i klasycznych wnętrz. Metalowa podstawa 30x30cm zapewnia stabilność dla choinek do 2 metrów wysokości. Pojemnik na wodę 1L utrzymuje świeżość drzewka przez cały sezon.',
+          'Stojak pod choinkę z szybkim montażem – kilka minut i gotowe! Antypoślizgowe podkładki chronią podłogę, a śruby mocujące zapewniają pewny chwyt pnia. Produkt polskiego producenta z 2-letnią gwarancją.',
+          'Złoty stojak na choinkę to nie tylko praktyczność, ale także ozdoba – luksusowy kolor podkreśla świąteczny klimat. Wybierz sprawdzony stojak choinkowy z pojemnikiem na wodę i ciesz się świętami bez obaw o przewrócenie drzewka.'
+        ],
+        featuresTitle: 'Najważniejsze zalety złotego metalowego stojaka na choinkę z pojemnikiem na wodę',
+        usageTitle: 'Jak zamontować elegancki stojak pod choinkę? Instrukcja krok po kroku',
+        usageSteps: [
+          'Wyjmij złoty stojak z opakowania',
+          'Załóż nakładki na śruby mocujące',
+          'Umieść pień choinki w uchwycie i sprawdź pion',
+          'Dokręć śruby równomiernie dla stabilności',
+          'Wlej wodę do pojemnika',
+          'Sprawdź stabilność przed dekorowaniem choinki'
+        ],
+        careTitle: 'Pielęgnacja złotego metalowego stojaka na choinkę – praktyczne wskazówki',
+        careInstructions: [
+          'Czyść stojak wilgotną ściereczką z łagodnym detergentem',
+          'Złota stal ukrywa zarysowania i jest łatwa w utrzymaniu',
+          'Po sezonie umyj stojak i dokładnie wysusz',
+          'Przechowuj w suchym miejscu, by zapobiec korozji',
+          'Regularnie sprawdzaj stan śrub',
+          'W razie potrzeby użyj złotej farby do retuszu'
+        ],
+        whyChooseTitle: 'Złoty metalowy stojak na choinkę z gwarancją producenta – dlaczego warto?',
+        whyChooseDescription: 'Wybierając nasz złoty metalowy stojak na choinkę, stawiasz na polskiego producenta, solidną stalową konstrukcję i praktyczny pojemnik na wodę. To produkt, który zapewnia bezpieczeństwo, trwałość i wygodę użytkowania przez wiele sezonów. Sprawdź opinie klientów i zamów złoty stojak na choinkę z szybką dostawą.'
+      }
   };
 
   return <StandaloneProductPage {...productData} />;

@@ -31,43 +31,43 @@ const StojakMalyCzarny = () => {
     
     // SEO Meta Tags
     seoTitle: 'Mały Czarny Stojak na Choinkę 30x30cm | Stal Malowana | Producent',
-    seoDescription: 'Profesjonalny mały stojak na choinkę 30x30cm w czarnym matowym wykończeniu. Waga 5kg, pojemnik 1L, max średnica pnia 8cm. ✓ Producent ✓ 2 lata gwarancji ✓ Dostawa 24h',
+  seoDescription: 'Profesjonalny mały stojak na choinkę 30x30cm w czarnym matowym wykończeniu. Waga 5kg, pojemnik 1L, max średnica pnia 8cm. ✓ Producent ✓ 2 lata gwarancji ✓ Wysyłka w 48h',
     seoKeywords: 'mały stojak na choinkę czarny, stojak na choinkę, stojak na choinke, stojak choinkowy, stojak pod choinkę, metalowy stojak na choinkę, stojak na choinkę z wodą, stojak do choinki, solidny stojak do choinki, stojak na żywą choinkę, stojak na choinkę z pojemnikiem na wodę, stojak choinkowy 30x30, stojak stalowy na choinkę, podstawki pod choinke, producent stojaków',
     
     // Unique Content for SEO
     uniqueContent: {
-      mainTitle: 'Dlaczego wybrać mały czarny stojak na choinkę w klasycznym stylu?',
-      mainDescription: [
-        'Mały czarny stojak na choinkę to kwintesencja praktyczności i uniwersalnego designu. Klasyczne czarne wykończenie matowe zostało wybrane z myślą o maksymalnej wszechstronności - pasuje do każdego stylu wnętrza, od nowoczesnego minimalizmu po tradycyjne aranżacje. Podstawa o wymiarach 30×30cm została zaprojektowana z myślą o optymalnym wykorzystaniu przestrzeni w mniejszych pomieszczeniach.',
-        'Matowe czarne wykończenie nie tylko prezentuje się elegancko, ale również jest bardzo praktyczne - nie odbija światła, dzięki czemu nie odwraca uwagi od głównej atrakcji jaką jest choinka. Powierzchnia matowa jest również mniej podatna na widoczne odciski palców i drobne zarysowania, co czyni stojak łatwym w utrzymaniu.',
-        'Ten model oferuje doskonały stosunek jakości do ceny, zachowując wszystkie kluczowe cechy funkcjonalne przy ekonomicznej cenie. Waga 5 kilogramów zapewnia odpowiednią stabilność dla choinek do 2 metrów wysokości, a uchwyt na pnie do 8 centymetrów średnicy pasuje do większości standardowych drzewek naturalnych dostępnych w sprzedaży.'
-      ],
+        mainTitle: 'Stojak na choinkę metalowy czarny 30x30cm – solidny wybór do żywej choinki',
+        mainDescription: [
+          'Metalowy stojak na choinkę z pojemnikiem na wodę to idealne rozwiązanie dla osób szukających trwałości i bezpieczeństwa. Stalowa konstrukcja malowana proszkowo gwarantuje stabilność nawet dla choinek do 2 metrów wysokości. Pojemnik na wodę 1L pozwala utrzymać świeżość drzewka przez cały sezon świąteczny.',
+          'Stojak pod choinkę z szybkim montażem – wystarczy kilka minut, by cieszyć się stabilną i bezpieczną dekoracją. Antypoślizgowe podkładki chronią podłogę, a śruby mocujące zapewniają pewny chwyt pnia. Produkt polskiego producenta z 2-letnią gwarancją.',
+          'Stojak stalowy na choinkę to nie tylko praktyczność, ale także estetyka – matowy czarny kolor pasuje do każdego wnętrza. Wybierz sprawdzony stojak choinkowy z pojemnikiem na wodę i ciesz się świętami bez obaw o przewrócenie drzewka.'
+        ],
       
-      featuresTitle: 'Praktyczne zalety czarnego stojaka na choinkę w klasycznym stylu',
+        featuresTitle: 'Najważniejsze zalety metalowego stojaka na choinkę z pojemnikiem na wodę',
       
-      usageTitle: 'Prosta instrukcja montażu klasycznego czarnego stojaka',
-      usageSteps: [
-        'Wyjmij stojak z folii ochronnej',
-        'Nakręć dołączone do zestawu nakładki na śruby',
-        'Umieść pień choinki w centralnym uchwycie sprawdzając pionowość drzewka',
-        'Dokręć śruby mocujące równomiernie aby zapewnić stabilny chwyt',
-        'Wlej do misy wodę',
-        'Sprawdź końcową stabilność całej konstrukcji przed dekorowaniem'
-      ],
+        usageTitle: 'Jak zamontować solidny stojak pod choinkę? Instrukcja krok po kroku',
+        usageSteps: [
+          'Wyjmij metalowy stojak z opakowania',
+          'Załóż nakładki na śruby mocujące',
+          'Umieść pień choinki w uchwycie i sprawdź pion',
+          'Dokręć śruby równomiernie dla stabilności',
+          'Wlej wodę do pojemnika',
+          'Sprawdź stabilność przed dekorowaniem choinki'
+        ],
       
-      careTitle: 'Łatwa pielęgnacja czarnego matowego stojaka na choinkę',
-      careInstructions: [
-        'Czyszczenie wykonuj wilgotną ściereczką używając łagodnych detergentów',
-        'Matowa powierzchnia ukrywa drobne zarysowania i jest łatwa w utrzymaniu',
-        'Po sezonie umyj stojak ciepłą wodą z mydłem i dokładnie wysusz',
-        'Przechowuj w suchym miejscu zabezpieczając przed korozją',
-        'Regularnie sprawdzaj stan śrub i w razie potrzeby dokręcaj',
-        'W przypadku zarysowań można użyć czarnej farby w sprayu do retuszu'
-      ],
+        careTitle: 'Pielęgnacja metalowego stojaka na choinkę – praktyczne wskazówki',
+        careInstructions: [
+          'Czyść stojak wilgotną ściereczką z łagodnym detergentem',
+          'Matowa stal ukrywa zarysowania i jest łatwa w utrzymaniu',
+          'Po sezonie umyj stojak i dokładnie wysusz',
+          'Przechowuj w suchym miejscu, by zapobiec korozji',
+          'Regularnie sprawdzaj stan śrub',
+          'W razie potrzeby użyj czarnej farby do retuszu'
+        ],
       
-      whyChooseTitle: 'Dlaczego nasz czarny stojak to niezawodny wybór?',
-      whyChooseDescription: 'Jako doświadczony polski producent stojaków na choinkę stawiamy na sprawdzone rozwiązania, które łączą niezawodność z przystępną ceną. Nasz mały czarny stojak to produkt stworzony z myślą o klientach ceniących praktyczność i uniwersalność. Klasyczne czarne wykończenie oznacza, że stojak będzie pasował do Państwa wnętrza niezależnie od zmian w aranżacji przez lata. Wybierając ten model, otrzymują Państwo sprawdzony w działaniu produkt, który będzie służył przez wiele sezonów świątecznych. Ekonomiczna cena nie oznacza kompromisów w kwestii bezpieczeństwa - używamy tej samej wysokiej jakości stali co w droższych modelach.'
-    }
+        whyChooseTitle: 'Metalowy stojak na choinkę z gwarancją producenta – dlaczego warto?',
+        whyChooseDescription: 'Wybierając nasz metalowy stojak na choinkę, stawiasz na polskiego producenta, solidną stalową konstrukcję i praktyczny pojemnik na wodę. To produkt, który zapewnia bezpieczeństwo, trwałość i wygodę użytkowania przez wiele sezonów. Sprawdź opinie klientów i zamów stojak na choinkę z szybką dostawą.'
+      }
   };
 
   return <StandaloneProductPage {...productData} />;
