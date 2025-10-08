@@ -115,20 +115,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
         
         <div className="flex flex-col md:flex-row gap-3">
           <button
-            onClick={() => {
-              // Check if we're on the main page
-              if (window.location.pathname === '/') {
-                const element = document.getElementById('zamowienie');
-                element?.scrollIntoView({ behavior: 'smooth' });
-              } else {
-                // Navigate to main page with hash
-                window.location.href = '/#zamowienie';
-              }
-            }}
-            className="flex-1 bg-gradient-to-br from-green-600 to-green-700 text-white py-3 px-6 rounded-xl font-semibold text-base hover:shadow-[0_15px_35px_rgba(22,_163,_74,_0.3)] hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center gap-2 group"
+            disabled
+            className="flex-1 bg-gray-400 text-white py-3 px-6 rounded-xl font-semibold text-base cursor-not-allowed flex items-center justify-center gap-2 opacity-60"
           >
-            <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-            Kup teraz
+            <ShoppingCart className="w-5 h-5" />
+            Niedługo dostępne
           </button>
           
           <Link

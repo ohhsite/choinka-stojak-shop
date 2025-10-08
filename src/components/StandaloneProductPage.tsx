@@ -287,13 +287,11 @@ const StandaloneProductPage = ({
                 Realizacja zamówienia w 48h | Dostawa kurierem w całej Polsce | 2 lata gwarancji
               </p>
               <button
-                onClick={() => {
-                  window.location.href = '/#zamowienie';
-                }}
-                className="w-full bg-gradient-to-br from-green-600 to-green-700 text-white py-4 px-8 rounded-xl font-bold text-lg hover:shadow-[0_20px_50px_rgba(22,_163,_74,_0.3)] hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center gap-3"
+                disabled
+                className="w-full bg-gray-400 text-white py-4 px-8 rounded-xl font-bold text-lg cursor-not-allowed flex items-center justify-center gap-3 opacity-60"
               >
                 <ShoppingCart className="w-5 h-5" />
-                Zamów stojak na choinkę - {productPrice} zł
+                Niedługo dostępne - {productPrice} zł
               </button>
               <div className="mt-3 text-center">
                 <a
@@ -589,13 +587,11 @@ const StandaloneProductPage = ({
             Szybka wysyłka, 2 lata gwarancji, polski producent – wybierz pewny stojak na choinkę!
           </p>
           <button
-            onClick={() => {
-              window.location.href = '/#zamowienie';
-            }}
-            className="bg-white text-green-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center gap-2"
+            disabled
+            className="bg-gray-400 text-white px-8 py-4 rounded-lg font-semibold cursor-not-allowed inline-flex items-center gap-2 opacity-60"
           >
             <ShoppingCart className="w-5 h-5" />
-            Zamów za {productPrice} zł
+            Niedługo dostępne - {productPrice} zł
           </button>
           <div className="flex flex-wrap justify-center gap-4 mt-6 text-sm text-green-200">
             <span>✓ Dostawa kurierem 48h</span>
