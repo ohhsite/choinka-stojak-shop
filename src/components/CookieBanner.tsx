@@ -12,24 +12,36 @@ const CookieBanner = () => {
     if (!cookiesAccepted) {
       setShowBanner(true);
     }
+
+    // Nasłuchuj custom event z Footer do otwierania polityki cookies
+    const handleOpenPolicy = () => {
+      setShowPolicy(true);
+    };
+    
+    window.addEventListener('openCookiePolicy', handleOpenPolicy);
+    
+    return () => {
+      window.removeEventListener('openCookiePolicy', handleOpenPolicy);
+    };
   }, []);
 
   const acceptCookies = () => {
     localStorage.setItem('cookiesAccepted', 'true');
     setShowBanner(false);
+    setShowPolicy(false);
   };
 
   const rejectCookies = () => {
     localStorage.setItem('cookiesAccepted', 'false');
     setShowBanner(false);
+    setShowPolicy(false);
   };
-
-  if (!showBanner) return null;
 
   return (
     <>
       {/* Cookie Banner */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg z-50">
+      {showBanner && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg z-50">
         <div className="container mx-auto px-3 py-3 md:px-6 md:py-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
             <div className="flex items-start md:items-center gap-3">
@@ -76,6 +88,7 @@ const CookieBanner = () => {
           </div>
         </div>
       </div>
+      )}
 
       {/* Cookie Policy Modal */}
       {showPolicy && (

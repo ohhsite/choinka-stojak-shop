@@ -3,6 +3,12 @@ import { Phone, MessageCircle, Mail, MapPin, Factory } from 'lucide-react';
 import EditableText from './EditableText';
 
 const Footer = () => {
+  const handleCookiePolicyClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Wyślij custom event do otwarcia modala cookies
+    window.dispatchEvent(new CustomEvent('openCookiePolicy'));
+  };
+
   return (
     <footer className="relative bg-gray-900 text-white py-8 md:py-12 overflow-hidden">
       {/* Subtle gradient background */}
@@ -107,7 +113,11 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#cookies" className="text-gray-300 hover:text-green-400 transition-all duration-300">
+                <a 
+                  href="#cookies" 
+                  onClick={handleCookiePolicyClick}
+                  className="text-gray-300 hover:text-green-400 transition-all duration-300"
+                >
                   <EditableText
                     id="footer-cookies-link"
                     initialText="Polityka Cookies"
