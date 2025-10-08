@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, memo, useCallback } from 'react';
 import { EditableContentContext } from '../context/EditableContentContext';
 
 interface EditableTextProps {
@@ -99,4 +99,4 @@ const EditableText: React.FC<EditableTextProps> = ({
   );
 };
 
-export default EditableText;
+export default memo(EditableText);

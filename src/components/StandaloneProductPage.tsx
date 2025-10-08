@@ -124,7 +124,12 @@ const StandaloneProductPage = ({
               <img 
                 src={productImages[currentImageIndex]} 
                 alt={`${productName} - wysokiej jakości metalowy stojak na choinkę z pojemnikiem na wodę`}
-                className="w-full h-full object-contain mix-blend-multiply"
+                loading="eager"
+                decoding="async"
+                width="500"
+                height="500"
+                className="w-full h-full object-contain"
+                style={{ backgroundColor: 'white' }}
               />
             </div>
             
@@ -140,8 +145,13 @@ const StandaloneProductPage = ({
                   >
                     <img 
                       src={image} 
-                      alt={`${productName} ${index + 1} - stojak choinkowy metalowy`} 
-                      className="w-full h-full object-contain" 
+                      alt={`${productName} ${index + 1} - stojak choinkowy metalowy`}
+                      loading="lazy"
+                      decoding="async"
+                      width="100"
+                      height="100"
+                      className="w-full h-full object-contain"
+                      style={{ backgroundColor: 'white' }}
                     />
                   </button>
                 ))}

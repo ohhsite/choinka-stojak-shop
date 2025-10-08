@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Ruler, Trees, Droplets, ShoppingCart, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import EditableText from './EditableText';
@@ -31,6 +31,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <img 
               src={image} 
               alt={name}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="300"
               className="w-full h-full object-contain mix-blend-multiply hover:scale-110 transition-transform duration-300"
             />
           </div>
@@ -135,4 +139,4 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </div>
     </div>;
 };
-export default ProductCard;
+export default memo(ProductCard);

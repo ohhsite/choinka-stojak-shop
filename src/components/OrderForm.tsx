@@ -4,8 +4,6 @@ import EditableText from './EditableText';
 
 const OrderForm = () => {
   const [formData, setFormData] = useState({
-    firma: '',
-    nip: '',
     kontakt: '',
     telefon: '',
     email: '',
@@ -19,8 +17,6 @@ const OrderForm = () => {
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        firma: '',
-        nip: '',
         kontakt: '',
         telefon: '',
         email: '',
@@ -37,7 +33,7 @@ const OrderForm = () => {
   };
 
   const generateWhatsAppMessage = () => {
-    const message = `Dzień dobry! Zapytanie ofertowe B2B:\n\n🏢 Firma: ${formData.firma}\n🔢 NIP: ${formData.nip}\n👤 Osoba kontaktowa: ${formData.kontakt}\n📞 Telefon: ${formData.telefon}\n📧 Email: ${formData.email}\n Uwagi: ${formData.uwagi}\n\nProszę o przygotowanie oferty B2B.`;
+    const message = `Dzień dobry! Zapytanie ofertowe:\n\n Osoba kontaktowa: ${formData.kontakt}\n📞 Telefon: ${formData.telefon}\n📧 Email: ${formData.email}\n💬 Uwagi: ${formData.uwagi}\n\nProszę o kontakt.`;
     return encodeURIComponent(message);
   };
 
@@ -126,37 +122,6 @@ const OrderForm = () => {
               />
             </div>
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-              <div className="grid gap-4 md:grid-cols-2 md:gap-6">
-                <div>
-                  <label htmlFor="firma" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Nazwa firmy *
-                  </label>
-                  <input
-                    type="text"
-                    id="firma"
-                    name="firma"
-                    required
-                    value={formData.firma}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm md:text-base"
-                    placeholder="Nazwa firmy Sp. z o.o."
-                  />
-                </div>
-                <div>
-                  <label htmlFor="nip" className="block text-sm font-semibold text-gray-700 mb-2">
-                    NIP
-                  </label>
-                  <input
-                    type="text"
-                    id="nip"
-                    name="nip"
-                    value={formData.nip}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm md:text-base"
-                    placeholder="123-456-78-90"
-                  />
-                </div>
-              </div>
               <div className="grid gap-4 md:grid-cols-2 md:gap-6">
                 <div>
                   <label htmlFor="kontakt" className="block text-sm font-semibold text-gray-700 mb-2">

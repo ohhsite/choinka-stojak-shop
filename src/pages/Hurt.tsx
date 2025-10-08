@@ -157,7 +157,12 @@ Dodatkowe informacje: ${formData.additionalInfo}
                     <img 
                       src={product.image} 
                       alt={product.name}
+                      loading="lazy"
+                      decoding="async"
+                      width="200"
+                      height="150"
                       className="w-full h-32 object-contain mb-3"
+                      style={{ backgroundColor: 'white' }}
                     />
                     <h4 className="font-semibold text-sm mb-2">{product.name}</h4>
                     <p className="text-xs text-gray-600 mb-2">{product.width}</p>
