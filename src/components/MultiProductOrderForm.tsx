@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
 import { Send, Phone, MessageCircle, CheckCircle, Package, Plus, Minus } from 'lucide-react';
-import EditableHeading from './EditableHeading';
-
-interface ProductOrder {
-  id: string;
-  product: string;
-  quantity: number;
-}
 
 const MultiProductOrderForm = () => {
   const [formData, setFormData] = useState({
@@ -19,37 +12,8 @@ const MultiProductOrderForm = () => {
     uwagi: ''
   });
 
-  const [productOrders, setProductOrders] = useState<ProductOrder[]>([
-    { id: '1', product: '', quantity: 5 }
-  ]);
-
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const produkty = [
-    "Stojak Mini - Stalowy Kompakt (49 zł)",
-    "Stojak Standard - Uniwersalny (69 zł)", 
-    "Stojak Premium - Wzmocniony (89 zł)",
-    "Stojak Maxi - Profesjonalny (129 zł)",
-    "Stojak Gigant - Przemysłowy (199 zł)",
-    "Stojak Deluxe - Z Systemem Obrotu (159 zł)"
-  ];
-
-  const addProductRow = () => {
-    const newId = (productOrders.length + 1).toString();
-    setProductOrders([...productOrders, { id: newId, product: '', quantity: 5 }]);
-  };
-
-  const removeProductRow = (id: string) => {
-    if (productOrders.length > 1) {
-      setProductOrders(productOrders.filter(order => order.id !== id));
-    }
-  };
-
-  const updateProductOrder = (id: string, field: 'product' | 'quantity', value: string | number) => {
-    setProductOrders(productOrders.map(order => 
-      order.id === id ? { ...order, [field]: value } : order
-    ));
-  };
+  const [productOrders, setProductOrders] = useState([{ id: '1', product: '', quantity: 5 }]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,6 +40,20 @@ const MultiProductOrderForm = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const addProductRow = () => {
+    setProductOrders([...productOrders, { id: Date.now().toString(), product: '', quantity: 5 }]);
+  };
+
+  const removeProductRow = (id: string) => {
+    setProductOrders(productOrders.filter(order => order.id !== id));
+  };
+
+  const updateProductOrder = (id: string, field: 'product' | 'quantity', value: string | number) => {
+    setProductOrders(productOrders.map(order => 
+      order.id === id ? { ...order, [field]: value } : order
+    ));
   };
 
   const generateWhatsAppMessage = () => {
@@ -107,12 +85,9 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-white rounded-xl p-12 shadow-xl border border-gray-200">
               <CheckCircle className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-              <EditableHeading 
-                level={2} 
-                className="text-3xl font-bold text-gray-900 mb-4"
-              >
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Dziękujemy za zapytanie!
-              </EditableHeading>
+              </h2>
               <p className="text-lg text-gray-600 mb-6">
                 Twoje zapytanie ofertowe zostało przyjęte. Skontaktujemy się z Tobą w ciągu 2 godzin 
                 roboczych w celu przygotowania indywidualnej oferty B2B.
@@ -138,28 +113,21 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
     <section id="zamowienie" className="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <EditableHeading 
-            level={2} 
-            className="text-4xl font-bold text-gray-900 mb-4"
-          >
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Zapytanie <span className="text-blue-600">Ofertowe B2B</span>
-          </EditableHeading>
+          </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Minimalne zamówienie 5 sztuk. Dostawa paletowa kurierem w całej Polsce. 
-            Przygotujemy indywidualną ofertę dla Twojej firmy.
+            Minimalne zamówienie 5 sztuk. Dostawa paletowa kurierem w całej Polsce. Przygotujemy indywidualną ofertę dla Twojej firmy.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Formularz */}
           <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
-            <EditableHeading 
-              level={3} 
-              className="text-2xl font-bold text-gray-900 mb-6 flex items-center"
-            >
+            <div className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <Send className="w-6 h-6 mr-3 text-blue-600" />
               Formularz B2B
-            </EditableHeading>
+            </div>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
@@ -247,16 +215,13 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
 
               {/* Sekcja produktów */}
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <label className="block text-sm font-semibold text-gray-700">
-                    Wybierz stojaki *
-                  </label>
+                <div className="flex justify-end">
                   <button
                     type="button"
                     onClick={addProductRow}
-                    className="flex items-center bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 transition-colors"
+                    className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg text-base font-semibold hover:bg-blue-700 transition-colors"
                   >
-                    <Plus className="w-4 h-4 mr-1" />
+                    <Plus className="w-5 h-5 mr-2" />
                     Dodaj produkt
                   </button>
                 </div>
@@ -264,19 +229,13 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
                 {productOrders.map((order, index) => (
                   <div key={order.id} className="flex gap-3 mb-3 p-4 bg-gray-50 rounded-lg">
                     <div className="flex-1">
-                      <select
+                      <input
+                        type="text"
                         value={order.product}
                         onChange={(e) => updateProductOrder(order.id, 'product', e.target.value)}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      >
-                        <option value="">-- Wybierz stojak --</option>
-                        {produkty.map((produkt, idx) => (
-                          <option key={idx} value={produkt}>
-                            {produkt}
-                          </option>
-                        ))}
-                      </select>
+                        className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Nazwa produktu"
+                      />
                     </div>
                     
                     <div className="w-24">
@@ -346,13 +305,10 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
 
           <div className="space-y-8">
             <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
-              <EditableHeading 
-                level={3} 
-                className="text-2xl font-bold text-gray-900 mb-6 flex items-center"
-              >
+              <div className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <Phone className="w-6 h-6 mr-3 text-blue-600" />
                 Kontakt Telefoniczny
-              </EditableHeading>
+              </div>
               <p className="text-gray-600 mb-6">
                 Zadzwoń bezpośrednio do działu sprzedaży B2B. 
                 Nasi konsultanci pomogą przygotować ofertę.
@@ -367,13 +323,10 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
             </div>
 
             <div className="bg-white rounded-xl shadow-xl p-8 border border-gray-200">
-              <EditableHeading 
-                level={3} 
-                className="text-2xl font-bold text-gray-900 mb-6 flex items-center"
-              >
+              <div className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                 <MessageCircle className="w-6 h-6 mr-3 text-gray-700" />
                 Szybki Kontakt WhatsApp
-              </EditableHeading>
+              </div>
               <p className="text-gray-600 mb-6">
                 Napisz na WhatsApp - najszybszy sposób na otrzymanie oferty. 
                 Odpowiadamy w godzinach pracy.
@@ -388,13 +341,10 @@ Proszę o przygotowanie oferty B2B z ceną hurtową.`;
             </div>
 
             <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-xl p-8 text-white">
-              <EditableHeading 
-                level={3} 
-                className="text-2xl font-bold mb-4 flex items-center text-white"
-              >
+              <div className="text-2xl font-bold mb-4 flex items-center text-white">
                 <Package className="w-6 h-6 mr-2" />
                 Promocja B2B -15%
-              </EditableHeading>
+              </div>
               <ul className="space-y-2 text-white/90 mb-4">
                 <li>✅ Rabat 15% do sierpnia 2025</li>
                 <li>✅ Dostawa paletowa w całej Polsce</li>
