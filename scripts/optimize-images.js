@@ -1,5 +1,5 @@
 import sharp from 'sharp';
-import { readdir } from 'fs/promises';
+import { readdir, stat } from 'fs/promises';
 import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -23,11 +23,31 @@ async function optimizeImages() {
 
       console.log(`Converting ${file}...`);
       
-      await sharp(inputPath)
-        .webp({ quality: 85, effort: 6 })
-        .toFile(outputPath);
+      // Sprawdź rozmiar pliku
+      const inputStats = await stat(inputPath);
+      const inputSizeKB = inputStats.size / 1024;
+      
+      let quality = 85;
+      let resizeOptions = null;
+      
+      // Dla dużych plików (>500KB) użyj niższej jakości i resize
+      if (inputSizeKB > 500) {
+        quality = 70;
+        resizeOptions = { width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true };
+        console.log(`  Large file (${inputSizeKB.toFixed(2)} KB) - using quality ${quality} and max 1200px`);
+      }
+      
+      const sharpInstance = sharp(inputPath).webp({ quality, effort: 6 });
+      
+      if (resizeOptions) {
+        sharpInstance.resize(resizeOptions);
+      }
+      
+      await sharpInstance.toFile(outputPath);
 
-      console.log(`✓ Created ${file.replace('.png', '.webp')}`);
+      const outputStats = await stat(outputPath);
+      const reduction = ((inputStats.size - outputStats.size) / inputStats.size * 100).toFixed(1);
+      console.log(`✓ Created ${file.replace('.png', '.webp')} (${(outputStats.size / 1024).toFixed(2)} KB) - ${reduction}% reduction`);
     }
 
     console.log('\n✓ All images optimized successfully!');

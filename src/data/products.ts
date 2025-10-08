@@ -30,7 +30,7 @@ export const PRODUCTS: Product[] = [
     treeSize: " do 2 m",
     description: "Kompaktowy stojak na choinkę w eleganckim czarnym matowym wykończeniu. Idealny dla mniejszych pomieszczeń i choinek naturalnych do 2 metrów wysokości. Stal malowana proszkowo zapewnia trwałość na lata.",
     price: " 229 zł",
-    image: "/images/Stojak stalowy na żywą choinke.png",
+    image: "/images/Stojak stalowy na żywą choinke.webp",
     features: ["Podstawa stalowa 30×30cm", "Waga tylko 5kg", "Pojemnik na wodę 1L", "Max średnica pnia 8cm", "Podkładki w zestawie"],
     specs: {
       podstawa: '30×30 cm',
@@ -49,7 +49,7 @@ export const PRODUCTS: Product[] = [
     treeSize: " 2 - 4 m",
     description: "Wzmocniony stojak choinkowy dla największych choinek naturalnych. Rozszerzona podstawa 50×50cm i waga 6,5kg gwarantują maksymalną stabilność nawet przy 4-metrowych choinkach z pełną dekoracją.",
     price: " 399 zł",
-    image: "/images/stalowy-stojak-do-duzej-choinki-czarny.png",
+    image: "/images/stalowy-stojak-do-duzej-choinki-czarny.webp",
     features: ["Wzmocniona podstawa 50×50cm", "Waga 6,5kg", "Pojemnik na wodę 1L", "Max średnica pnia 10cm", "Śruby M8 w zestawie"],
     specs: {
       podstawa: '50×50 cm',
@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
     treeSize: " do 2 m",
     description: "Elegancki stojak w luksusowym złotym wykończeniu, który dodaje świątecznego blasku Twojemu wnętrzu. Kompaktowy rozmiar idealny do salonów, biur i mniejszych przestrzeni mieszkalnych.",
     price: " 249 zł",
-    image: "/images/zloty stojak maly.png",
+    image: "/images/zloty stojak maly.webp",
     features: ["Złote wykończenie premium", "Podstawa 30×30cm", "Waga 5kg", "Pojemnik na wodę 1L", "Antypoślizgowe nóżki"],
     specs: {
       podstawa: '30×30 cm',
@@ -87,7 +87,7 @@ export const PRODUCTS: Product[] = [
     treeSize: " 2 - 4 m",
     description: "Prestiżowy duży stojak w złotym wykończeniu dla najwspanialszych choinek. Połączenie funkcjonalności z eleganckim designem - idealny dla reprezentacyjnych pomieszczeń i dużych choinek naturalnych.",
     price: " 429 zł",
-    image: "/images/złoty metalowy stojak na choinkę dużą.png",
+    image: "/images/złoty metalowy stojak na choinkę dużą.webp",
     features: ["Luksusowe złote wykończenie", "Podstawa wzmocniona 50×50cm", "Waga 6,5kg", "Pojemnik na wodę 1L", "Profesjonalne śruby M8"],
     specs: {
       podstawa: '50×50 cm',

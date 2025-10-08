@@ -12,6 +12,7 @@ interface ProductCardProps {
   image: string;
   features: string[];
   detailsUrl?: string;
+  priority?: boolean; // dla pierwszego produktu
 }
 const ProductCard: React.FC<ProductCardProps> = ({
   id,
@@ -22,7 +23,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   price,
   image,
   features,
-  detailsUrl
+  detailsUrl,
+  priority = false
 }) => {
   return <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 flex md:flex-row flex-col w-full md:h-auto min-h-[800px] md:min-h-0">
       <div className="relative md:w-[40%] w-full">
@@ -31,8 +33,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
             <img 
               src={image} 
               alt={name}
-              loading="lazy"
+              loading={priority ? "eager" : "lazy"}
               decoding="async"
+              fetchPriority={priority ? "high" : "auto"}
               width="400"
               height="300"
               className="w-full h-full object-contain mix-blend-multiply hover:scale-110 transition-transform duration-300"

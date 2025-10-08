@@ -33,9 +33,9 @@ const Products = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {PRODUCTS.map(product => (
+          {PRODUCTS.map((product, index) => (
             <div key={product.id} className="transform transition-transform duration-300 hover:scale-105">
-              <ProductCard {...product} />
+              <ProductCard {...product} priority={index === 0} />
             </div>
           ))}
         </div>
