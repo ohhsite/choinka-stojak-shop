@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://choinka-stojak-shop-drab.vercel.app/sitemap.xml
+Sitemap: https://stojakinachoinke.pl/sitemap.xml
