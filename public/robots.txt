@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://choinka-stojak-shop-drab.vercel.app/sitemap.xml
