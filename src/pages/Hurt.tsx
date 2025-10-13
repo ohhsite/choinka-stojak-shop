@@ -263,7 +263,7 @@ Dodatkowe informacje: ${formData.additionalInfo}
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="+48 123 456 789"
+                      placeholder="+48 604 821 125"
                     />
                   </div>
 

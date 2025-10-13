@@ -61,11 +61,11 @@ const OrderForm = () => {
                 className="text-lg text-gray-600 mb-6"
               />
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+48123456789" className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                <a href="tel:+48604821125" className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                   <Phone className="w-4 h-4 mr-2" />
                   Zadzwoń teraz
                 </a>
-                <a href={`https://wa.me/48123456789?text=${generateWhatsAppMessage()}`} className="flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
+                <a href={`https://wa.me/48604821125?text=${generateWhatsAppMessage()}`} className="flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   WhatsApp
                 </a>
@@ -150,7 +150,7 @@ const OrderForm = () => {
                     value={formData.telefon}
                     onChange={handleChange}
                     className="w-full px-3 py-2 md:px-4 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm md:text-base"
-                    placeholder="+48 123 456 789"
+                    placeholder="+48 604 821 125"
                   />
                 </div>
               </div>
@@ -205,14 +205,14 @@ const OrderForm = () => {
               </p>
               <div className="grid gap-4">
                 <a
-                  href="tel:+48123456789"
+                  href="tel:+48604821125"
                   className="flex items-center justify-center bg-gradient-to-br from-green-600 to-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300"
                 >
                   <Phone className="w-4 h-4 mr-2" />
-                  +48 123 456 789
+                  +48 604 821 125
                 </a>
                 <a
-                  href={`https://wa.me/48123456789?text=${generateWhatsAppMessage()}`}
+                  href={`https://wa.me/48604821125?text=${generateWhatsAppMessage()}`}
                   className="flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
                 >
                   <MessageCircle className="w-4 h-4 mr-2" />

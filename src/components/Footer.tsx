@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="order-1 md:order-none">
             <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-green-400">Kontakt B2B</h4>
             <div className="space-y-2 md:space-y-3">
-              <a href="tel:+48123456789" className="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+              <a href="tel:+48604821125" className="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
                 <Phone className="w-4 h-4 mr-3 flex-shrink-0" />
                 <EditableText
                   id="footer-phone"
@@ -58,11 +58,11 @@ const Footer = () => {
                   as="span"
                 />
               </a>
-              <a href="https://wa.me/48123456789" className="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+              <a href="https://wa.me/48604821125" className="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
                 <MessageCircle className="w-4 h-4 mr-3 flex-shrink-0" />
                 WhatsApp 
               </a>
-              <a href="mailto:b2b@stojaki-choinkowe.pl" className="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
+              <a href="mailto:kontakt@stojakinachoinke.pl" className="flex items-center text-gray-300 hover:text-green-400 transition-colors text-sm md:text-base">
                 <Mail className="w-4 h-4 mr-3 flex-shrink-0" />
                 <EditableText
                   id="footer-email"

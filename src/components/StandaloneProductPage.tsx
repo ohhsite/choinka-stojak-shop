@@ -34,7 +34,7 @@ const StandaloneProductPage = ({
 
   // SEO meta tags
   useEffect(() => {
-    const origin = window.location.origin;
+    const origin = 'https://stojakinachoinke.pl';
     const canonicalUrl = `${origin}${window.location.pathname}`;
 
     // Helper function to create/update meta tags
