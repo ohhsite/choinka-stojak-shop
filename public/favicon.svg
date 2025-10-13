@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Choinka (3 trójkąty) -->
+  <polygon points="50,15 30,35 70,35" fill="#2d5016"/>
+  <polygon points="50,28 25,50 75,50" fill="#3d6b1f"/>
+  <polygon points="50,42 20,65 80,65" fill="#4a7c28"/>
+  
+  <!-- Pień -->
+  <rect x="43" y="65" width="14" height="12" fill="#8b4513"/>
+  
+  <!-- Stojak (metalowy) -->
+  <rect x="35" y="77" width="30" height="4" fill="#4a5568" rx="1"/>
+  <rect x="38" y="81" width="24" height="3" fill="#2d3748"/>
+  
+  <!-- Gwiazda na czubku -->
+  <polygon points="50,8 51.5,12 56,12 52.5,15 54,19 50,16.5 46,19 47.5,15 44,12 48.5,12" fill="#ffd700"/>
+</svg>
