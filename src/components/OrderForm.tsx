@@ -24,16 +24,7 @@ const OrderForm = () => {
       if (!res.ok) {
         const data = await res.json();
         console.error('Server error:', data);
-        
-        // Fallback do mailto
-        const subject = encodeURIComponent('Zapytanie ofertowe - stojaki na choinkę');
-        const body = encodeURIComponent(
-          `Osoba kontaktowa: ${formData.kontakt}\n` +
-          `Email: ${formData.email}\n` +
-          `Telefon: ${formData.telefon}\n` +
-          `Uwagi: ${formData.uwagi}`
-        );
-        window.location.href = `mailto:kontakt@stojakinachoinke.pl?subject=${subject}&body=${body}`;
+        alert(data.error || 'Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub zadzwoń.');
         return;
       }
 
@@ -49,16 +40,7 @@ const OrderForm = () => {
       }, 3000);
     } catch (err) {
       console.error('Błąd wysyłania:', err);
-      
-      // Fallback do mailto
-      const subject = encodeURIComponent('Zapytanie ofertowe - stojaki na choinkę');
-      const body = encodeURIComponent(
-        `Osoba kontaktowa: ${formData.kontakt}\n` +
-        `Email: ${formData.email}\n` +
-        `Telefon: ${formData.telefon}\n` +
-        `Uwagi: ${formData.uwagi}`
-      );
-      window.location.href = `mailto:kontakt@stojakinachoinke.pl?subject=${subject}&body=${body}`;
+      alert('Nie udało się wysłać wiadomości. Skontaktuj się telefonicznie: +48 604 821 125');
     }
   };
 

@@ -33,23 +33,7 @@ const MultiProductOrderForm = () => {
       if (!res.ok) {
         const data = await res.json();
         console.error('Server error:', data);
-        
-        // Fallback do mailto
-        const productsText = validProducts
-          .map(p => `${p.product} - ${p.quantity} szt.`)
-          .join('\n');
-        const subject = encodeURIComponent('Zapytanie B2B - stojaki na choinkę');
-        const body = encodeURIComponent(
-          `Firma: ${formData.firma}\n` +
-          `NIP: ${formData.nip}\n` +
-          `Osoba kontaktowa: ${formData.kontakt}\n` +
-          `Email: ${formData.email}\n` +
-          `Telefon: ${formData.telefon}\n` +
-          `Adres dostawy: ${formData.adres}\n` +
-          `Produkty:\n${productsText}\n` +
-          `Uwagi: ${formData.uwagi}`
-        );
-        window.location.href = `mailto:kontakt@stojakinachoinke.pl?subject=${subject}&body=${body}`;
+        alert(data.error || 'Wystąpił błąd podczas wysyłania. Spróbuj ponownie lub zadzwoń.');
         return;
       }
 
@@ -69,24 +53,7 @@ const MultiProductOrderForm = () => {
       }, 3000);
     } catch (err) {
       console.error('Błąd wysyłania:', err);
-      
-      // Fallback do mailto
-      const validProducts = productOrders.filter(order => order.product);
-      const productsText = validProducts
-        .map(p => `${p.product} - ${p.quantity} szt.`)
-        .join('\n');
-      const subject = encodeURIComponent('Zapytanie B2B - stojaki na choinkę');
-      const body = encodeURIComponent(
-        `Firma: ${formData.firma}\n` +
-        `NIP: ${formData.nip}\n` +
-        `Osoba kontaktowa: ${formData.kontakt}\n` +
-        `Email: ${formData.email}\n` +
-        `Telefon: ${formData.telefon}\n` +
-        `Adres dostawy: ${formData.adres}\n` +
-        `Produkty:\n${productsText}\n` +
-        `Uwagi: ${formData.uwagi}`
-      );
-      window.location.href = `mailto:kontakt@stojakinachoinke.pl?subject=${subject}&body=${body}`;
+      alert('Nie udało się wysłać wiadomości. Skontaktuj się telefonicznie: +48 604 821 125');
     }
   };
 
