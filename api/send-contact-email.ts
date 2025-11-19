@@ -115,8 +115,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     return res.status(200).json({ ok: true })
   } catch (err: any) {
-    console.error('Email send error:', err)
-    return res.status(500).json({ error: 'Nie udało się wysłać wiadomości.' })
+    console.error('Email send error:', err);
+    console.error('Error details:', {
+      message: err.message,
+      code: err.code,
+      command: err.command,
+      response: err.response,
+    });
+    return res.status(500).json({ 
+      error: 'Nie udało się wysłać wiadomości.',
+      details: err.message 
+    });
   }
 }
 

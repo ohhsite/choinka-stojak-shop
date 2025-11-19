@@ -23,7 +23,17 @@ const OrderForm = () => {
 
       if (!res.ok) {
         const data = await res.json();
-        alert(data.error || 'Wystąpił błąd podczas wysyłania wiadomości.');
+        console.error('Server error:', data);
+        
+        // Fallback do mailto
+        const subject = encodeURIComponent('Zapytanie ofertowe - stojaki na choinkę');
+        const body = encodeURIComponent(
+          `Osoba kontaktowa: ${formData.kontakt}\n` +
+          `Email: ${formData.email}\n` +
+          `Telefon: ${formData.telefon}\n` +
+          `Uwagi: ${formData.uwagi}`
+        );
+        window.location.href = `mailto:kontakt@stojakinachoinke.pl?subject=${subject}&body=${body}`;
         return;
       }
 
@@ -39,7 +49,16 @@ const OrderForm = () => {
       }, 3000);
     } catch (err) {
       console.error('Błąd wysyłania:', err);
-      alert('Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się telefonicznie.');
+      
+      // Fallback do mailto
+      const subject = encodeURIComponent('Zapytanie ofertowe - stojaki na choinkę');
+      const body = encodeURIComponent(
+        `Osoba kontaktowa: ${formData.kontakt}\n` +
+        `Email: ${formData.email}\n` +
+        `Telefon: ${formData.telefon}\n` +
+        `Uwagi: ${formData.uwagi}`
+      );
+      window.location.href = `mailto:kontakt@stojakinachoinke.pl?subject=${subject}&body=${body}`;
     }
   };
 

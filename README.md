@@ -60,6 +60,41 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Wholesale email (SMTP) configuration
+
+The hurt (wholesale) inquiry form sends emails using a serverless function at `api/send-wholesale-email.ts`.
+
+### Environment variables (create `.env.local` on Vercel or locally)
+
+```
+SMTP_HOST=mail-serwer127727.lh.pl
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=kontakt@stojakinachoinke.pl
+SMTP_PASS=<SECRET_PASSWORD>
+FROM_EMAIL=kontakt@stojakinachoinke.pl
+TO_EMAIL=kontakt@stojakinachoinke.pl
+```
+
+Only `SMTP_USER` and `SMTP_PASS` are strictly required (plus host/port if they differ). The form will fallback to a `mailto:` link if the API call fails (e.g. when running only `vite` locally without serverless runtime).
+
+### Local development
+
+Running `npm run dev` launches the Vite front-end at a port like `http://localhost:8083`. The serverless function isn't available in pure Vite. Options:
+
+1. Use `mailto:` fallback automatically shown after a failed send.
+2. Install Vercel CLI and run `vercel dev` to emulate the `/api` function locally.
+
+### Troubleshooting
+
+- 500 error: Check that `SMTP_USER`/`SMTP_PASS` are set and valid.
+- TLS issues: Ensure `SMTP_PORT=465` and `SMTP_SECURE=true`. For port 587 set `SMTP_SECURE=false`.
+- Spam folder: Add proper SPF/DKIM for the sending domain.
+
+### Security
+
+Never commit real credentials. Use `.env.local` which Vercel auto-injects, or project environment variable settings in the dashboard.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/05b2fa97-8539-494b-9751-0aaac7b5e6ce) and click on Share -> Publish.
