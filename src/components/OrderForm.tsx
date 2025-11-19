@@ -11,18 +11,36 @@ const OrderForm = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        kontakt: '',
-        telefon: '',
-        email: '',
-        uwagi: ''
+    
+    try {
+      const res = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    }, 3000);
+
+      if (!res.ok) {
+        const data = await res.json();
+        alert(data.error || 'Wystąpił błąd podczas wysyłania wiadomości.');
+        return;
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          kontakt: '',
+          telefon: '',
+          email: '',
+          uwagi: ''
+        });
+      }, 3000);
+    } catch (err) {
+      console.error('Błąd wysyłania:', err);
+      alert('Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się telefonicznie.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

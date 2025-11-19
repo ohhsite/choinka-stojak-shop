@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Package, Truck, Calculator, Mail, Phone, CheckCircle, Star } from 'lucide-react';
+import { Package, Truck, Calculator, Mail, Phone } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { PRODUCTS } from '../data/products';
@@ -25,24 +25,49 @@ const Hurt = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent('Zapytanie o ofertę hurtową - stojaki na choinkę');
-    const body = encodeURIComponent(`
-Zapytanie o ofertę hurtową:
+  const [sending, setSending] = useState(false);
+  const [result, setResult] = useState<{ok?: boolean; error?: string}>({});
 
-Firma: ${formData.companyName}
-NIP: ${formData.nip}
-Osoba kontaktowa: ${formData.contactPerson}
-Email: ${formData.email}
-Telefon: ${formData.phone}
-Adres: ${formData.address}
-Szacowana ilość: ${formData.estimatedQuantity}
-Preferowane produkty: ${formData.preferredProducts}
-Dodatkowe informacje: ${formData.additionalInfo}
-    `);
-    
-    window.location.href = `mailto:kontakt@stojakinachoinke.pl?subject=${subject}&body=${body}`;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    setResult({});
+    try {
+      const res = await fetch('/api/send-wholesale-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const contentType = res.headers.get('content-type') || '';
+      let data: any = undefined;
+      let raw = '';
+      try {
+        raw = await res.text();
+        if (raw && contentType.includes('application/json')) {
+          data = JSON.parse(raw);
+        }
+      } catch {
+        // ignore parse errors
+      }
+
+      if (!res.ok) {
+        const isLocalApiMissing = res.status === 404 || !contentType.includes('application/json');
+        const message = data?.error || (isLocalApiMissing
+          ? 'Endpoint API jest niedostępny lokalnie. Uruchom "vercel dev" albo użyj linku mailto poniżej.'
+          : 'Błąd wysyłki');
+        throw new Error(message);
+      }
+
+      setResult({ ok: true });
+      setFormData({
+        companyName: '', nip: '', contactPerson: '', email: '', phone: '', address: '', estimatedQuantity: '', preferredProducts: '', additionalInfo: ''
+      });
+    } catch (err: any) {
+      setResult({ error: err?.message || 'Wystąpił błąd' });
+    } finally {
+      setSending(false);
+    }
   };
 
   // SEO meta tags
@@ -68,8 +93,8 @@ Dodatkowe informacje: ${formData.additionalInfo}
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Header />
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-16">
+  {/* Hero Section */}
+  <section id="oferta" className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-16">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Stojaki Choinkowe Hurt
@@ -94,8 +119,8 @@ Dodatkowe informacje: ${formData.additionalInfo}
         </div>
       </section>
 
-      {/* Oferta Hurtowa */}
-      <section className="py-16">
+  {/* Oferta Hurtowa */}
+  <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -144,7 +169,7 @@ Dodatkowe informacje: ${formData.additionalInfo}
             </div>
 
             {/* Produkty w ofercie hurtowej */}
-            <div className="bg-slate-50 rounded-xl p-8 mb-16">
+            <div id="produkty" className="bg-slate-50 rounded-xl p-8 mb-16">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 Produkty w Ofercie Hurtowej
               </h3>
@@ -177,8 +202,8 @@ Dodatkowe informacje: ${formData.additionalInfo}
         </div>
       </section>
 
-      {/* Formularz zapytania */}
-      <section className="py-16 bg-gray-50">
+  {/* Formularz zapytania */}
+  <section id="kontakt" className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -333,14 +358,31 @@ Dodatkowe informacje: ${formData.additionalInfo}
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300 flex items-center gap-2 mx-auto"
+                    disabled={sending}
+                    className="bg-gradient-to-r from-blue-600 to-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300 flex items-center gap-2 mx-auto"
                   >
                     <Mail className="w-5 h-5" />
-                    Wyślij Zapytanie o Ofertę
+                    {sending ? 'Wysyłanie...' : 'Wyślij Zapytanie o Ofertę'}
                   </button>
-                  <p className="text-sm text-gray-500 mt-4">
-                    Odpowiedź otrzymasz w ciągu 24 godzin roboczych
-                  </p>
+                  {result.ok && (
+                    <p className="text-green-600 font-medium mt-4">Zapytanie wysłane pomyślnie. Odpowiemy w 24h roboczych.</p>
+                  )}
+                  {result.error && (
+                    <div className="mt-4">
+                      <p className="text-red-600 font-medium">{result.error}</p>
+                      <a
+                        href={`mailto:kontakt@stojakinachoinke.pl?subject=${encodeURIComponent('Zapytanie o ofertę hurtową - stojaki na choinkę')}&body=${encodeURIComponent(`Firma: ${formData.companyName}\nNIP: ${formData.nip}\nOsoba kontaktowa: ${formData.contactPerson}\nEmail: ${formData.email}\nTelefon: ${formData.phone}\nAdres: ${formData.address}\nSzacowana ilość: ${formData.estimatedQuantity}\nPreferowane produkty: ${formData.preferredProducts}\nDodatkowe informacje: ${formData.additionalInfo}`)}`}
+                        className="inline-block text-blue-700 underline mt-2"
+                      >
+                        Wyślij przez klienta poczty
+                      </a>
+                    </div>
+                  )}
+                  {!result.ok && !result.error && (
+                    <p className="text-sm text-gray-500 mt-4">
+                      Odpowiedź otrzymasz w ciągu 24 godzin roboczych
+                    </p>
+                  )}
                 </div>
               </form>
             </div>

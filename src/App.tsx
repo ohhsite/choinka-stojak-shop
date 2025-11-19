@@ -16,6 +16,8 @@ const StojakMalyCzarny = lazy(() => import("./pages/StojakMalyCzarny"));
 const StojakMalyZloty = lazy(() => import("./pages/StojakMalyZloty"));
 const StojakDuzyCzarny = lazy(() => import("./pages/StojakDuzyCzarny"));
 const StojakDuzyZloty = lazy(() => import("./pages/StojakDuzyZloty"));
+// const Regulamin = lazy(() => import("./pages/Regulamin"));
+// const PolitykaPrywatnosci = lazy(() => import("./pages/PolitykaPrywatnosci"));
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,7 @@ const App = () => (
         <ScrollToTop />
         <Suspense fallback={<div className="loading">Ładowanie...</div>}>
           <Routes>
+            {/* Restore original public routes */}
             <Route path="/" element={<Index />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/hurt" element={<Hurt />} />
@@ -36,6 +39,7 @@ const App = () => (
             <Route path="/produkt/stojak-duzy-czarny" element={<StojakDuzyCzarny />} />
             <Route path="/produkt/stojak-duzy-zloty" element={<StojakDuzyZloty />} />
             <Route path="/admin" element={<Admin />} />
+            {/* Routes for legal pages reverted to original (PDF link in footer) */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
