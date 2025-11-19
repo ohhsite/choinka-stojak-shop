@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Package, Truck, Calculator, Mail, Phone } from 'lucide-react';
+import { Package, Truck, Calculator, Mail, Phone, CheckCircle, MessageCircle } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { PRODUCTS } from '../data/products';
@@ -60,14 +60,28 @@ const Hurt = () => {
       }
 
       setResult({ ok: true });
-      setFormData({
-        companyName: '', nip: '', contactPerson: '', email: '', phone: '', address: '', estimatedQuantity: '', preferredProducts: '', additionalInfo: ''
-      });
     } catch (err: any) {
       setResult({ error: err?.message || 'Wystąpił błąd' });
     } finally {
       setSending(false);
     }
+  };
+
+  const generateWhatsAppMessage = () => {
+    const message = `Dzień dobry! Zapytanie o ofertę hurtową:
+
+🏢 Firma: ${formData.companyName}
+🔢 NIP: ${formData.nip}
+👤 Osoba kontaktowa: ${formData.contactPerson}
+📞 Telefon: ${formData.phone}
+📧 Email: ${formData.email}
+📍 Adres: ${formData.address}
+📦 Szacowana ilość: ${formData.estimatedQuantity}
+🎄 Preferowane produkty: ${formData.preferredProducts}
+📝 Dodatkowe informacje: ${formData.additionalInfo}
+
+Proszę o przygotowanie oferty hurtowej.`;
+    return encodeURIComponent(message);
   };
 
   // SEO meta tags
@@ -93,6 +107,60 @@ const Hurt = () => {
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Header />
       
+      {/* Success Screen */}
+      {result.ok ? (
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="bg-white rounded-xl p-12 shadow-xl border border-gray-200">
+                <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-6" />
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  Dziękujemy za zapytanie!
+                </h2>
+                <p className="text-lg text-gray-600 mb-6">
+                  Twoje zapytanie ofertowe zostało przyjęte. Skontaktujemy się z Tobą w ciągu 24 godzin roboczych w celu przygotowania indywidualnej oferty hurtowej.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                  <a 
+                    href="tel:+48604821125" 
+                    className="flex items-center justify-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  >
+                    <Phone className="w-4 h-4 mr-2" />
+                    Zadzwoń teraz
+                  </a>
+                  <a 
+                    href={`https://wa.me/48604821125?text=${generateWhatsAppMessage()}`}
+                    className="flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    WhatsApp
+                  </a>
+                </div>
+                <button
+                  onClick={() => {
+                    setResult({});
+                    setFormData({
+                      companyName: '', 
+                      nip: '', 
+                      contactPerson: '', 
+                      email: '', 
+                      phone: '', 
+                      address: '', 
+                      estimatedQuantity: '', 
+                      preferredProducts: '', 
+                      additionalInfo: ''
+                    });
+                  }}
+                  className="text-blue-600 hover:text-blue-700 font-medium"
+                >
+                  ← Powrót do formularza
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <>
   {/* Hero Section */}
   <section id="oferta" className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-16">
         <div className="container mx-auto px-6 text-center">
@@ -307,7 +375,8 @@ const Hurt = () => {
                       <option value="5-20">5-20 szt.</option>
                       <option value="21-50">21-50 szt.</option>
                       <option value="51-100">51-100 szt.</option>
-                      <option value="101-500">101-500 szt.</option>
+                      <option value="100-200">100-200 szt.</option>
+                      <option value="300-500">300-500 szt.</option>
                       <option value="500+">500+ szt.</option>
                     </select>
                   </div>
@@ -413,6 +482,8 @@ const Hurt = () => {
           </div>
         </div>
       </section>
+      </>
+      )}
 
       <Footer />
     </div>
