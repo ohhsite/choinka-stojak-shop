@@ -10,12 +10,17 @@ import NotFound from "./pages/NotFound";
 
 // Lazy load pages for better performance
 const Admin = lazy(() => import("./pages/Admin"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const AdminOrders = lazy(() => import("./pages/AdminOrders"));
+const AdminOrderDetails = lazy(() => import("./pages/AdminOrderDetails"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const Hurt = lazy(() => import("./pages/Hurt"));
 const StojakMalyCzarny = lazy(() => import("./pages/StojakMalyCzarny"));
 const StojakMalyZloty = lazy(() => import("./pages/StojakMalyZloty"));
 const StojakDuzyCzarny = lazy(() => import("./pages/StojakDuzyCzarny"));
 const StojakDuzyZloty = lazy(() => import("./pages/StojakDuzyZloty"));
+const Koszyk = lazy(() => import("./pages/Koszyk"));
+const KoszykDostawa = lazy(() => import("./pages/KoszykDostawa"));
 // const Regulamin = lazy(() => import("./pages/Regulamin"));
 // const PolitykaPrywatnosci = lazy(() => import("./pages/PolitykaPrywatnosci"));
 
@@ -38,7 +43,16 @@ const App = () => (
             <Route path="/produkt/stojak-maly-zloty" element={<StojakMalyZloty />} />
             <Route path="/produkt/stojak-duzy-czarny" element={<StojakDuzyCzarny />} />
             <Route path="/produkt/stojak-duzy-zloty" element={<StojakDuzyZloty />} />
-            <Route path="/admin" element={<Admin />} />
+            
+            {/* Koszyk routes */}
+            <Route path="/koszyk" element={<Koszyk />} />
+            <Route path="/koszyk/dostawa" element={<KoszykDostawa />} />
+            
+            {/* Admin panel routes */}
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/zamowienia" element={<AdminOrders />} />
+            <Route path="/admin/zamowienia/:id" element={<AdminOrderDetails />} />
+            
             {/* Routes for legal pages reverted to original (PDF link in footer) */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

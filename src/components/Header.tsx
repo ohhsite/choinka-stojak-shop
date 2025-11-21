@@ -1,11 +1,17 @@
 import React from 'react';
-import { Phone, MessageCircle, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Phone, MessageCircle, Menu, X, ShoppingCart } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import EditableText from './EditableText';
+import { useCartStore } from '../hooks/use-cart';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { totalItems, loadCart } = useCartStore();
+
+  useEffect(() => {
+    loadCart();
+  }, [loadCart]);
 
   return (
     <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm">
@@ -79,6 +85,18 @@ const Header = () => {
 
           {/* Przyciski kontaktowe desktop */}
           <div className="hidden md:flex items-center gap-3">
+            <Link
+              to="/koszyk"
+              className="relative p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Koszyk"
+            >
+              <ShoppingCart className="w-6 h-6 text-gray-700" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
             <a
               href="https://wa.me/48604821125"
               className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center gap-2"
@@ -95,8 +113,20 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Przycisk menu mobilne */}
-          <div className="md:hidden">
+          {/* Przyciski mobilne */}
+          <div className="md:hidden flex items-center gap-2">
+            <Link
+              to="/koszyk"
+              className="relative p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Koszyk"
+            >
+              <ShoppingCart className="w-6 h-6 text-gray-700" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
             <button 
               className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

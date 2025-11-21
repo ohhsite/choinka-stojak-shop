@@ -2,30 +2,32 @@ import React, { memo } from 'react';
 import { Ruler, Trees, Droplets, ShoppingCart, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import EditableText from './EditableText';
+import { useCartStore } from '../hooks/use-cart';
+import { Product } from '../data/products';
+import { toast } from 'sonner';
+
 interface ProductCardProps {
-  id: number;
-  name: string;
-  width: string;
-  treeSize: string;
-  description: string;
-  price: string;
-  image: string;
-  features: string[];
-  detailsUrl?: string;
+  product: Product;
   priority?: boolean; // dla pierwszego produktu
 }
 const ProductCard: React.FC<ProductCardProps> = ({
-  id,
-  name,
-  width,
-  treeSize,
-  description,
-  price,
-  image,
-  features,
-  detailsUrl,
+  product,
   priority = false
 }) => {
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = () => {
+    addToCart(product, 1);
+    toast.success(`${product.name} dodano do koszyka!`, {
+      action: {
+        label: 'Zobacz koszyk',
+        onClick: () => window.location.href = '/koszyk',
+      },
+    });
+  };
+
+  const { id, name, width, treeSize, description, price, image, detailsUrl } = product;
+
   return <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 flex md:flex-row flex-col w-full md:h-auto min-h-[800px] md:min-h-0">
       <div className="relative md:w-[40%] w-full">
         <div className="bg-gradient-to-br from-green-50 to-gray-50 flex items-center justify-center p-4 h-full min-h-[300px]">
@@ -115,15 +117,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
         
         <div className="flex flex-col md:flex-row gap-3">
           <button
-            disabled
-            className="flex-1 bg-gray-400 text-white py-3 px-6 rounded-xl font-semibold text-base cursor-not-allowed flex items-center justify-center gap-2 opacity-60"
+            onClick={handleAddToCart}
+            className="flex-1 bg-gradient-to-r from-green-600 to-green-700 text-white py-3 px-6 rounded-xl font-semibold text-base hover:shadow-lg hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center gap-2"
           >
             <ShoppingCart className="w-5 h-5" />
-            Niedługo dostępne
+            Dodaj do koszyka
           </button>
           
           <Link
-            to={detailsUrl || `/produkt/${id === 1 ? 'stojak-maly' : 'stojak-duzy'}`}
+            to={detailsUrl || `/produkt/${id}`}
             className="flex-1 bg-gradient-to-br from-slate-600 to-slate-700 text-white py-3 px-6 rounded-xl font-semibold text-base hover:shadow-[0_15px_35px_rgba(71,_85,_105,_0.3)] hover:translate-y-[-2px] transition-all duration-300 flex items-center justify-center gap-2 group border border-slate-500/20"
           >
             <Info className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
